@@ -9,6 +9,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 enable_testing()
 
-add_subdirectory(extern/gtest)
+add_subdirectory(extern/googletest)
 add_subdirectory(src/math)
 add_subdirectory(tests)
