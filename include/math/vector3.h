@@ -25,13 +25,15 @@ namespace math
         float getLength();
         float getLengthSquared();
         void normalize();
-        void getNormalized();
+        Vector3 getNormalized();
 
         static float dotProduct(const Vector3 &v1, const Vector3 &v2);
         static Vector3 crossProduct(const Vector3 &v1, const Vector3 &v2);
+        static float distanceSquared(const Vector3 &v1, const Vector3 &v2);
+        static float distance(const Vector3 &v1, const Vector3 &v2);
     };
 }
 
-float operator*(const float &val, const math::Vector3 &vec);
+math::Vector3 operator*(const float &val, const math::Vector3 &vec);
 
 #endif

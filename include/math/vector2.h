@@ -24,15 +24,17 @@ namespace math
         float getLength();
         float getLengthSquared();
         void normalize();
-        void getNormalized();
+        Vector2 getNormalized();
 
         static float dotProduct(const Vector2 &v1, const Vector2 &v2);
+        static float distanceSquared(const Vector2 &v1, const Vector2 &v2);
+        static float distance(const Vector2 &v1, const Vector2 &v2);
 
     };
 
 }
 
-float operator*(const float &val, const math::Vector2 &vec);
+math::Vector2 operator*(const float &val, const math::Vector2 &vec);
 
 
 
