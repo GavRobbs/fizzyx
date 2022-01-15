@@ -1,4 +1,5 @@
 #include <vector3.h>
+#include <mathutils.h>
 
 using namespace math;
 
@@ -36,9 +37,9 @@ Vector3 Vector3::operator/(const float& other)
 
 bool Vector3::operator==(const Vector3 &other)
 {
-    bool x_diff = std::fabs(x - other.x) < 0.0000001f;
-    bool y_diff = std::fabs(y- other.y) < 0.0000001f;
-    bool z_diff = std::fabs(z- other.z) < 0.0000001f;
+    bool x_diff = compareFloats(x, other.x);
+    bool y_diff = compareFloats(y, other.y);
+    bool z_diff = compareFloats(z, other.z);
 
     return x_diff && y_diff && z_diff;
 }
@@ -75,7 +76,7 @@ Vector3 Vector3::getNormalized()
 
 Vector3 Vector3::crossProduct(const Vector3 &v1, const Vector3 &v2)
 {
-    float x = v1.z * v2.y - v1.y * v2.z;
+    float x = v1.y * v2.z - v1.z * v2.y;
     float y = v1.z * v2.x - v1.x * v2.z;
     float z = v1.x * v2.y - v1.y * v2.x;
     return Vector3{x, y, z};

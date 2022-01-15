@@ -1,4 +1,5 @@
 #include <vector2.h>
+#include <mathutils.h>
 
 using namespace math;
 
@@ -36,8 +37,8 @@ Vector2 Vector2::operator/(const float& other)
 
 bool Vector2::operator==(const Vector2 &other)
 {
-    bool x_diff = std::fabs(x - other.x) < 0.0000001f;
-    bool y_diff = std::fabs(y- other.y) < 0.0000001f;
+    bool x_diff = compareFloats(x, other.x);
+    bool y_diff = compareFloats(y, other.y);
 
     return x_diff && y_diff;
 

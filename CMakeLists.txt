@@ -4,6 +4,9 @@ set(ThisName Fizzyx)
 
 project(${ThisName} LANGUAGES C CXX)
 
+include(CTest)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 

@@ -1,4 +1,5 @@
 #include <mat22.h>
+#include <mathutils.h>
 #include <cmath>
 
 using namespace math;
@@ -68,7 +69,7 @@ bool Matrix22::operator==(const Matrix22 &other)
     bool result = true;
     for(size_t i = 0; i < 4; i++)
     {
-        result = result && (std::fabs(values[i] - other.values[i]) < 0.0000001f);
+        result = result && compareFloats(values[i], other.values[i]);
     }
 
     return result;
