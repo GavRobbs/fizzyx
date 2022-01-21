@@ -3,7 +3,7 @@
 
 using namespace fizzyx::core;
 
-IPhysicsEntity::IPhysicsEntity()
+IPhysicsEntity::IPhysicsEntity():id(IPhysicsEntity::idTracker++)
 {
 
 }

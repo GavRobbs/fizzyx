@@ -10,9 +10,10 @@ namespace fizzyx
 {
     class PhysicsWorld
     {
-        private:
+        protected:
         std::vector<std::unique_ptr<core::IPhysicsEntity>> entities;
         core::IPhysicsSolver* solver;
+        
         public:
         void update(float dt);
         PhysicsWorld();

@@ -65,11 +65,12 @@ namespace fizzyx
             virtual void setTorque(const float &torque);
             virtual void clearTorque();
 
-            private:
+            protected:
             unsigned int id;
             float mass;
             float inverse_mass;
             float gravity;
+            static unsigned int idTracker;
         };
     }
     
