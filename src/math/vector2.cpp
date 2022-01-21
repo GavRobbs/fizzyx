@@ -95,3 +95,31 @@ math::Vector2 operator*(const float &val, const math::Vector2 &vec)
 {
     return Vector2{vec.x * val, vec.y * val};
 }
+
+float& Vector2::operator[](const int& index)
+{
+    if(index == 0)
+    {
+        return x;
+    }
+
+    if(index == 1)
+    {
+        return y;
+    }
+
+}
+
+const float& Vector2::operator[](const int& index) const
+{
+    if(index == 0)
+    {
+        return x;
+    }
+
+    if(index == 1)
+    {
+        return y;
+    }
+
+}

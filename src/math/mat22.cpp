@@ -150,5 +150,14 @@ Matrix22 operator*(const float &val, const Matrix22 &mat)
     return Matrix22{mat.values[0] * val, mat.values[1] * val, mat.values[2] * val, mat.values[3] * val};
 }
 
+/* There are two versions of the element access operator, one that returns a regular reference you can use to change the value you want
+and another one that returns a const reference, for use in value retrieval. I chose to do this instead of overloading the arry index-of operator.*/
+float& Matrix22::operator()(int row, int col)
+{
+    return values[(row * 2) + col];
+}
 
-        
+const float& Matrix22::operator()(int row, int col) const
+{
+    return values[(row * 2) + col];
+}

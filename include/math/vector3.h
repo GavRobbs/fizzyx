@@ -31,6 +31,9 @@ namespace math
         static Vector3 crossProduct(const Vector3 &v1, const Vector3 &v2);
         static float distanceSquared(const Vector3 &v1, const Vector3 &v2);
         static float distance(const Vector3 &v1, const Vector3 &v2);
+
+        float& operator[](const int& index);
+        const float& operator[](const int& index) const;
     };
 }
 

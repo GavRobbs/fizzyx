@@ -101,7 +101,43 @@ float Vector3::distance(const Vector3 &v1, const Vector3 &v2)
     return std::sqrtf(distanceSquared(v1, v2));
 }
 
-math::Vector3 operator*(const float &val, const math::Vector3 &vec)
+Vector3 operator*(const float &val, const math::Vector3 &vec)
 {
     return Vector3{vec.x * val, vec.y * val, vec.z * val};
+}
+
+float& Vector3::operator[](const int& index)
+{
+    if(index == 0)
+    {
+        return x;
+    }
+
+    if(index == 1)
+    {
+        return y;
+    }
+
+    if(index == 2)
+    {
+        return z;
+    }
+}
+
+const float& Vector3::operator[](const int& index) const
+{
+    if(index == 0)
+    {
+        return x;
+    }
+
+    if(index == 1)
+    {
+        return y;
+    }
+
+    if(index == 2)
+    {
+        return z;
+    }
 }

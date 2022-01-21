@@ -3,6 +3,7 @@
 
 #include <vector2.h>
 #include <vector3.h>
+#include <mat22.h>
 
 namespace math
 {
@@ -20,10 +21,15 @@ namespace math
         Matrix33 operator*(const Matrix33 & other);
         Matrix33 operator*(const float& other);
 
-        Vector2 operator*(const Vector2& other);
         Vector3 operator*(const Vector3& other);
+
+        Vector2 multiplyAsDirectionVector(const Vector2 &other);
+        Vector2 multiplyAsPositionVector(const Vector2 &other);
         
         Matrix33 operator/(const float& other);
+
+        float& operator()(int row, int col);
+        const float& operator()(int row, int col) const;
 
         bool operator==(const Matrix33 &other);
         bool operator!=(const Matrix33 &other);
@@ -37,14 +43,16 @@ namespace math
         Matrix33 getInverse();
 
         Matrix33 getAdjoint();
+        Matrix33 getCofactor();
 
         static Matrix33 generateScalingMatrix(float x, float y, float z);
         static Matrix33 generateTranslationMatrix(float x, float y);
         static Matrix33 generateIdentityMatrix();
 
-        static Matrix33 generateXRotationMatrix(float angle);
-        static Matrix33 generateYRotationMatrix(float angle);
-        static Matrix33 generateZRotationMatrix(float angle);
+        static Matrix33 generateRotationMatrix(float angle);
+
+        private:
+        Matrix22 getMinor(int row, int col);
     };
 
 }

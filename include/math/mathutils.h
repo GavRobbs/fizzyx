@@ -8,8 +8,13 @@
 namespace math
 {
     //https://stackoverflow.com/questions/17333/what-is-the-most-effective-way-for-float-and-double-comparison
-    static bool compareFloats(float A, float B, float epsilon=0.000001f, float VERYSMALL=1.0E-100)
+    static bool compareFloats(float A, float B, float epsilon=0.000001f, float VERYSMALL=1.0E-20)
     {
+        if(A == B)
+        {
+            return true;
+        }
+
         float absDiff = std::fabs(A - B);
         if(absDiff < VERYSMALL)
         {

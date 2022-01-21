@@ -26,6 +26,9 @@ namespace math
         bool operator==(const Matrix22 &other);
         bool operator!=(const Matrix22 &other);
 
+        float& operator()(int row, int col);
+        const float& operator()(int row, int col) const;
+
         void transpose();
         Matrix22 getTranspose();
 

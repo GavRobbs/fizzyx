@@ -30,6 +30,9 @@ namespace math
         static float distanceSquared(const Vector2 &v1, const Vector2 &v2);
         static float distance(const Vector2 &v1, const Vector2 &v2);
 
+        float& operator[](const int& index);
+        const float& operator[](const int& index) const;
+
     };
 
 }
