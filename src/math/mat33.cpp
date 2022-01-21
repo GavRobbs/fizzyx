@@ -1,5 +1,7 @@
 #include <mat33.h>
 #include <mathutils.h>
+#include <stdexcept>
+#include <sstream>
 
 using namespace math;
 
@@ -244,11 +246,23 @@ Matrix33 operator*(const float &val, const math::Matrix33 &mat)
 
 float& Matrix33::operator()(int row, int col)
 {
+    if(row > 2 || col > 2)
+    {
+        std::stringstream ss;
+        ss << "Matrix Row " << row << " Column " << col << "is out of range!";
+        throw std::out_of_range{ss.str()};
+    }
     return values[(row * 3) + col];
 }
 
 const float& Matrix33::operator()(int row, int col) const
 {
+    if(row > 2 || col > 2)
+    {
+        std::stringstream ss;
+        ss << "Matrix Row " << row << " Column " << col << "is out of range!";
+        throw std::out_of_range{ss.str()};
+    }
     return values[(row * 3) + col];
 }
 

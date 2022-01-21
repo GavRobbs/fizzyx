@@ -1,5 +1,8 @@
 #include <vector3.h>
 #include <mathutils.h>
+#include <stdexcept>
+#include <sstream>
+#include <string>
 
 using namespace math;
 
@@ -111,16 +114,18 @@ float& Vector3::operator[](const int& index)
     if(index == 0)
     {
         return x;
-    }
-
-    if(index == 1)
+    } else if(index == 1)
     {
         return y;
-    }
-
-    if(index == 2)
+    } else if(index == 2)
     {
         return z;
+    } else
+    {
+        std::stringstream errorstream{};
+        errorstream << "Vector index " << index << " is out of range";
+
+        throw std::out_of_range{errorstream.str()};
     }
 }
 
@@ -129,15 +134,19 @@ const float& Vector3::operator[](const int& index) const
     if(index == 0)
     {
         return x;
-    }
-
-    if(index == 1)
+    } else if(index == 1)
     {
         return y;
-    }
-
-    if(index == 2)
+    } else if(index == 2)
     {
         return z;
+    } else
+    {
+        std::stringstream errorstream{};
+        errorstream << "Vector index " << index << " is out of range";
+
+        throw std::out_of_range{errorstream.str()};
     }
+
+    
 }

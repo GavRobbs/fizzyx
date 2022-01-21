@@ -6,7 +6,7 @@ TEST(MatrixTests, MatrixEquality)
 {
     math::Matrix22 mat2{1.0f, 0.0f, 0.0f, 1.0f};
     math::Matrix22 sameAsMat2{1.0f, 0.0f, 0.0f, 1.0f};
-    math::Matrix22 notTheSameAsMat2{1.00001f, 0.0005f, 0.0005f, 1.00001f};
+    math::Matrix22 notTheSameAsMat2{1.0000001f, 0.000005f, 0.000005f, 1.0000001f};
 
     ASSERT_TRUE(mat2 != notTheSameAsMat2);
     ASSERT_TRUE(mat2 == sameAsMat2);

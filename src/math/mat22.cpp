@@ -1,6 +1,8 @@
 #include <mat22.h>
 #include <mathutils.h>
 #include <cmath>
+#include <sstream>
+#include <stdexcept>
 
 using namespace math;
 
@@ -154,10 +156,22 @@ Matrix22 operator*(const float &val, const Matrix22 &mat)
 and another one that returns a const reference, for use in value retrieval. I chose to do this instead of overloading the arry index-of operator.*/
 float& Matrix22::operator()(int row, int col)
 {
+    if(row > 1 || col > 1)
+    {
+        std::stringstream ss;
+        ss << "Matrix Row " << row << " Column " << col << "is out of range!";
+        throw std::out_of_range{ss.str()};
+    }
     return values[(row * 2) + col];
 }
 
 const float& Matrix22::operator()(int row, int col) const
 {
+    if(row > 1 || col > 1)
+    {
+        std::stringstream ss;
+        ss << "Matrix Row " << row << " Column " << col << "is out of range!";
+        throw std::out_of_range{ss.str()};
+    }
     return values[(row * 2) + col];
 }

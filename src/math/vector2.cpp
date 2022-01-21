@@ -1,5 +1,7 @@
 #include <vector2.h>
 #include <mathutils.h>
+#include <sstream>
+#include <stdexcept>
 
 using namespace math;
 
@@ -101,11 +103,15 @@ float& Vector2::operator[](const int& index)
     if(index == 0)
     {
         return x;
-    }
-
-    if(index == 1)
+    } else if(index == 1)
     {
         return y;
+    } else
+    {
+        std::stringstream errorstream{};
+        errorstream << "Vector index " << index << " is out of range";
+
+        throw std::out_of_range{errorstream.str()};
     }
 
 }
@@ -115,11 +121,15 @@ const float& Vector2::operator[](const int& index) const
     if(index == 0)
     {
         return x;
-    }
-
-    if(index == 1)
+    } else if(index == 1)
     {
         return y;
+    } else
+    {
+        std::stringstream errorstream{};
+        errorstream << "Vector index " << index << " is out of range";
+
+        throw std::out_of_range{errorstream.str()};
     }
 
 }
