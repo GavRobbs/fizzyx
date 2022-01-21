@@ -14,4 +14,5 @@ enable_testing()
 
 add_subdirectory(extern/googletest)
 add_subdirectory(src/math)
+add_subdirectory(src/fizzyx)
 add_subdirectory(tests)
