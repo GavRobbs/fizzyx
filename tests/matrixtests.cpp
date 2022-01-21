@@ -60,7 +60,24 @@ TEST(MatrixTest, MatrixMultiplicationScalar)
 
 TEST(MatrixTest, MatrixMultiplicationVector)
 {
+    math::Matrix22 mat22test(3.18f, 2.0f, 1.02f, 2.03f);
+    math::Matrix22 mat22identity;
+    math::Vector2 vec2test{1.53f, 3.22f};
 
+    ASSERT_TRUE((mat22test * vec2test) == (math::Vector2{11.3054f, 8.0972f}));
+    ASSERT_TRUE((mat22identity * vec2test) == vec2test);
+
+    math::Matrix33 mat33test{};
+    mat33test(0, 1) = 2.74f;
+    mat33test(1, 1) = 1.56f;
+    mat33test(1, 2) = 1.08f;
+    mat33test(0, 2) = 6.714f;
+    mat33test(2, 0) = 11.12f;
+    math::Matrix33 mat33identity{};
+    math::Vector3 vec3test{0.24f, 5.789f, 11.322f};
+
+    ASSERT_TRUE((mat33test * vec3test) == (math::Vector3{92.117768f, 21.2586f, 13.9908f}));
+    ASSERT_TRUE((mat33identity * vec3test) == vec3test);
 }
 
 TEST(MatrixTest, MatrixMultiplicationMatrix)
