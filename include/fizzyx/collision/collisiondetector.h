@@ -16,7 +16,7 @@ namespace fizzyx::collision
         virtual void invert();
     };
 
-    class CollisionDetector
+    class ICollisionDetector
     {
         public:
         virtual ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b) = 0;

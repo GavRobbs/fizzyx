@@ -28,7 +28,7 @@ void PhysicsWorld::update(float dt)
     }
 }
 
-void PhysicsWorld::setCollisionDetector(collision::CollisionDetector *detector)
+void PhysicsWorld::setCollisionDetector(collision::ICollisionDetector *detector)
 {
     if(collisionDetector != nullptr)
     {

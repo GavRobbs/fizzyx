@@ -17,8 +17,8 @@ set(MATH_HEADERS ../../include/fizzyx/math/vector2.h ../../include/fizzyx/math/v
 set(TutorialName FizzyxTutorial)
 set(TutorialSourcesFolder tutorial)
 set(TutorialHeadersFolder ../../include/fizzyx/tutorial)
-set(TUTORIAL_SOURCES ${TutorialSourcesFolder}/pointmass.cpp ${TutorialSourcesFolder}/nullsolver.cpp)
-set(TUTORIAL_HEADERS ${TutorialHeadersFolder}/pointmass.h ${TutorialHeadersFolder}/nullsolver.h)
+set(TUTORIAL_SOURCES ${TutorialSourcesFolder}/pointmass.cpp ${TutorialSourcesFolder}/nullsolver.cpp ${TutorialSourcesFolder}/nulldetector.cpp)
+set(TUTORIAL_HEADERS ${TutorialHeadersFolder}/pointmass.h ${TutorialHeadersFolder}/nullsolver.h ${TutorialHeadersFolder}/nulldetector.h)
 
 add_library(${MathLibName} STATIC ${MATH_SOURCES} ${MATH_HEADERS})
 target_include_directories(${MathLibName} PUBLIC ../../include/fizzyx/)
