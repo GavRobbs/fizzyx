@@ -126,6 +126,7 @@ class Entity
             }
         }
 
+        return nullptr;
     };
 
     template<class T>
@@ -141,6 +142,8 @@ class Entity
                 componentList.push_back(componentByType);
             }
         }
+
+        return componentList;
 
     };
 

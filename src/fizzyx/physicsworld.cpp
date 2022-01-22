@@ -36,14 +36,14 @@ void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
 
  void PhysicsWorld::removeEntity(unsigned int id)
  {
-     for(auto it = entities.begin(); it != entities.end(); ++it)
-     {
+    for(auto it = entities.begin(); it != entities.end(); ++it)
+    {
         if(it->get()->getID() == id)
         {
             entities.erase(it);
             return;
         }
-     }
+    }
 
  }
 
