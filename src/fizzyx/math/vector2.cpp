@@ -98,6 +98,30 @@ math::Vector2 operator*(const float &val, const math::Vector2 &vec)
     return Vector2{vec.x * val, vec.y * val};
 }
 
+void Vector2::operator+=(const Vector2 &other)
+{
+    x += other.x;
+    y += other.y;
+}
+
+void Vector2::operator-=(const Vector2 &other)
+{
+    x -= other.x;
+    y -= other.y;
+}
+
+void Vector2::operator*=(const float &other)
+{
+    x *= other;
+    y *= other;
+}
+
+void Vector2::operator/=(const float &other)
+{
+    x /= other;
+    y /= other;
+}
+
 float& Vector2::operator[](const int& index)
 {
     if(index == 0)

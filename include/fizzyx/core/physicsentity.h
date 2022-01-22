@@ -19,7 +19,7 @@ namespace fizzyx
         class IPhysicsEntity
         {
             public:
-            virtual void update() = 0;
+            virtual void update(float dt) = 0;
 
             IPhysicsEntity();
             virtual ~IPhysicsEntity();
@@ -71,6 +71,7 @@ namespace fizzyx
             float inverse_mass;
             float gravity;
             static unsigned int idTracker;
+            float damping{0.999f};
         };
     }
     

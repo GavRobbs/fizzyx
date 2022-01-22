@@ -15,6 +15,11 @@ namespace math
         Vector2 operator-(const Vector2 &other);
         Vector2 operator*(const float& other);
 
+        void operator+=(const Vector2 &other);
+        void operator-=(const Vector2 &other);
+        void operator*=(const float &other);
+        void operator/=(const float &other);
+
         /* Not exactly the strictest in terms of mathematical notation, but for convenience */
         Vector2 operator/(const float& other);
 
