@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include <mat22.h>
-#include <mat33.h>
+#include <math/mat22.h>
+#include <math/mat33.h>
 
 TEST(MatrixTests, MatrixEquality)
 {

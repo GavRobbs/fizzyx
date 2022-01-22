@@ -1,7 +1,7 @@
 #ifndef FIZZYX_ENTITY_H
 #define FIZZYX_ENTITY_H
 
-#include <vector2.h>
+#include <math/vector2.h>
 
 //Need to create collision library stub
 

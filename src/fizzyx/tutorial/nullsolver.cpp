@@ -1,6 +1,6 @@
 #include <tutorial/nullsolver.h>
 
-void NullSolver::update(fizzyx::core::ICollisionData * collision, float dt)
+void NullSolver::solve(fizzyx::collision::ICollisionData * collision, float dt)
 {
     
 }

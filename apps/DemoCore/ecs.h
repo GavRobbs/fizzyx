@@ -5,8 +5,8 @@
 #include <memory>
 #include <physicsworld.h>
 
-#include <vector2.h>
-#include <mat33.h>
+#include <math/vector2.h>
+#include <math/mat33.h>
 
 class Entity;
 class Component;

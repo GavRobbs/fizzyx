@@ -1,5 +1,5 @@
-#include <mat22.h>
-#include <mathutils.h>
+#include <math/mat22.h>
+#include <math/mathutils.h>
 #include <cmath>
 #include <sstream>
 #include <stdexcept>

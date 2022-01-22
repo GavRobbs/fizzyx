@@ -1,13 +1,44 @@
 #include <physicsworld.h>
-#include <physicsentity.h>
+#include <core/physicsentity.h>
 #include <memory>
 
 using namespace fizzyx;
 
 void PhysicsWorld::update(float dt)
 {
+    /*
+        This is where the bulk of the processing takes place. We evaluate constraints, generate the appropriate forces/impulses
+        and torques, then integrate for the new position, velocity and acceleration of each body in the scene.
+    */
 
+   //Need to add multiple loops here
+
+    for(auto it = entities.begin(); it != std::prev(entities.end()); ++it)
+    {
+        for(auto it2 = std::next(it); it2 != entities.end(); ++it2)
+        {
+            collision::ICollisionData * result = collisionDetector->detectCollision((*it).get(), (*it2).get());
+
+            if(result != nullptr)
+            {
+                solver->solve(result, dt);
+            }
+
+        }
+    }
 }
+
+void PhysicsWorld::setCollisionDetector(collision::CollisionDetector *detector)
+{
+    if(collisionDetector != nullptr)
+    {
+        delete this->collisionDetector;
+        collisionDetector = nullptr;
+    }
+
+    this->collisionDetector = detector;
+}
+
 
 void PhysicsWorld::setSolver(core::IPhysicsSolver * solver)
 {

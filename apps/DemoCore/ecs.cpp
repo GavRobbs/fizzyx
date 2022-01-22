@@ -1,6 +1,6 @@
 #include <ecs.h>
 #include <memory>
-#include <mat33.h>
+#include <math/mat33.h>
 
 void SceneManager::processPhysics(float dt)
 {

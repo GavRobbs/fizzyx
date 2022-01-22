@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include <vector2.h>
-#include <vector3.h>
+#include <math/vector2.h>
+#include <math/vector3.h>
 
 TEST(VectorTests, VectorEquality)
 {
