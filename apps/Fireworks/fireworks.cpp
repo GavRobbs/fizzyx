@@ -28,6 +28,9 @@ class FireworksApp : public DemoApp
                     running = false;
                 }
             }
+
+            graphicsManager.clear(0, 0, 0, 0);
+            graphicsManager.display();
             SDL_Delay(1);
         }
     }

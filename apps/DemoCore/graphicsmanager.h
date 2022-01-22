@@ -13,10 +13,13 @@ class GraphicsManager
     ~GraphicsManager();
     void init(std::string name, int w, int h);
     void terminate();
+
+    void clear(int r, int g, int b, int a);
+    void display();
     
     private:
-    SDL_Window * window = nullptr;
-
+    SDL_Window * window{nullptr};
+    SDL_Renderer * renderer{nullptr};
 };
 
 #endif
