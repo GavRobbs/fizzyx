@@ -4,6 +4,8 @@
 #include <float.h>
 #include <cmath>
 #include <algorithm>
+#include <ctime>
+#include <cstdlib>
 
 namespace math
 {
@@ -24,6 +26,37 @@ namespace math
         float maxAbs = std::max(fabs(A), fabs(B));
         return (absDiff/maxAbs) < epsilon;
     }
+
+    class Random
+    {
+
+        public:
+        static bool isSeeded;
+
+        Random()
+        {
+            if(!Random::isSeeded)
+            {
+                Random::isSeeded = true;
+                std::srand(std::time(nullptr));
+            }
+
+        }
+        ~Random()
+        {
+
+        }
+
+        int getRandomInteger(int lowbound = 0, int highbound = RAND_MAX)
+        {
+
+        }
+
+        float getRandomFloat(float lowbound = 0.0f, float highbound = (float)RAND_MAX)
+        {
+
+        }
+    };
 
 }
 
