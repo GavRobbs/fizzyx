@@ -1,3 +1,3 @@
 #include <math/mathutils.h>
 
-Random::isSeeded = false;
+bool math::Random::isSeeded = false;

@@ -42,6 +42,7 @@ namespace math
             }
 
         }
+        
         ~Random()
         {
 
@@ -49,12 +50,15 @@ namespace math
 
         int getRandomInteger(int lowbound = 0, int highbound = RAND_MAX)
         {
-
+            return lowbound + (std::rand() % (highbound - lowbound));
         }
 
         float getRandomFloat(float lowbound = 0.0f, float highbound = (float)RAND_MAX)
         {
+            float diff = highbound - lowbound;
+            float rando = float(rand()) / float(RAND_MAX);
 
+            return lowbound + (std::fmodf(rando, diff));
         }
     };
 

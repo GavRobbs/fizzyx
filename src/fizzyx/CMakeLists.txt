@@ -11,7 +11,7 @@ set(COLLISION_SOURCES collision/collisiondetector.cpp)
 set(COLLISION_HEADERS ../../include/fizzyx/collision/collisiondetector.h)
 
 set(MathLibName MathLibrary)
-set(MATH_SOURCES math/vector2.cpp math/vector3.cpp math/mat22.cpp math/mat33.cpp)
+set(MATH_SOURCES math/vector2.cpp math/vector3.cpp math/mat22.cpp math/mat33.cpp math/mathutils.cpp)
 set(MATH_HEADERS ../../include/fizzyx/math/vector2.h ../../include/fizzyx/math/vector3.h ../../include/fizzyx/math/mat22.h ../../include/fizzyx/math/mat33.h ../../include/fizzyx/math/mathutils.h)
 
 set(TutorialName FizzyxTutorial)
