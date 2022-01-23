@@ -14,14 +14,14 @@ namespace fizzyx
         protected:
         std::vector<std::unique_ptr<core::IPhysicsEntity>> entities;
         core::IPhysicsSolver* solver;
-        collision::CollisionDetector* collisionDetector;
+        collision::ICollisionDetector* collisionDetector;
         
         public:
         void update(float dt);
         PhysicsWorld();
         ~PhysicsWorld();
         void setSolver(core::IPhysicsSolver *solver);
-        void setCollisionDetector(collision::CollisionDetector *detector);
+        void setCollisionDetector(collision::ICollisionDetector *detector);
         
         void addEntity(core::IPhysicsEntity *entity);
         void removeEntity(unsigned int id);

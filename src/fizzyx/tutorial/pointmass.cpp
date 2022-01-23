@@ -6,6 +6,7 @@ using namespace fizzyx::tutorial;
 PointMassEntity::PointMassEntity():core::IPhysicsEntity()
 {
     mass = 1.0f;
+    gravity = 10.f;
 }
         
 PointMassEntity::~PointMassEntity()
