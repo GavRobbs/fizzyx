@@ -45,6 +45,16 @@ void SceneManager::update(float dt)
     processPhysics(dt);
     processThinking(dt);
     render(dt);
+
+    //This last loop flags all the entities that were marked for deletion and gets rid of them
+    for(auto it = entities.begin(); it != entities.end(); ++it)
+    {
+        if(it->get()->forDeletion)
+        {
+            entities.erase(it);
+            return;
+        }
+    }
 }
 
 void SceneManager::addEntity(Entity * entity)
@@ -53,7 +63,8 @@ void SceneManager::addEntity(Entity * entity)
     std::unique_ptr<Entity> entity_ptr(entity);
     entities.push_back(std::move(entity_ptr));
 }
-    
+
+//This deletes an entity instantly, you should prefer Destroy() instead   
 void SceneManager::removeEntity(Entity * entity)
 {
     removeEntity(entity->getID());   
@@ -90,6 +101,11 @@ void Component::setOwner(Entity *owner)
     this->owner = owner;
 }
 
+Entity * Component::getOwner()
+{
+    return owner;
+}
+
 unsigned int Component::getID()
 {
     return id;
@@ -102,7 +118,7 @@ Entity::Entity():id(Entity::idTracker++)
 
 Entity::~Entity()
 {
-
+    components.clear();
 }
 
 void Entity::update(float dt)
@@ -151,4 +167,10 @@ const Transform& Entity::getTransform() const
 void Entity::setTransform(const Transform &transform)
 {
     this->transform = transform;
+}
+
+//Does not delete an entity instantly, instead marks it for deletion at the end of the current frame
+void Entity::Destroy()
+{
+    forDeletion = true;
 }

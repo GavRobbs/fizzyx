@@ -6,6 +6,7 @@
 DemoApp::DemoApp(std::string windowName, int width, int height)
 {
     graphicsManager.init(windowName, width, height);
+    sceneManager = SceneManager{};
 }
 
 void DemoApp::setup()
@@ -59,6 +60,8 @@ void DemoApp::mainLoop()
         graphicsManager.clear(0, 0, 0, 0);
         drawScene();
         graphicsManager.display();
+
+        SDL_Delay(1);
     }
 }
 
@@ -75,4 +78,14 @@ void DemoApp::processEvent(const SDL_Event &event)
 bool DemoApp::isRunning()
 {
     return running;
+}
+
+GraphicsManager & DemoApp::getGraphicsManager()
+{
+    return graphicsManager;
+}
+
+SceneManager & DemoApp::getSceneManager()
+{
+    return sceneManager;
 }

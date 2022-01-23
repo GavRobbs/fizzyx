@@ -1,7 +1,7 @@
 set(ThisName DemoCore)
 
-set(SOURCES DemoCore/demoapp.cpp DemoCore/ecs.cpp DemoCore/graphicsmanager.cpp)
-set(HEADERS DemoCore/demoapp.h DemoCore/ecs.h DemoCore/graphicsmanager.h)
+set(SOURCES DemoCore/demoapp.cpp DemoCore/ecs.cpp DemoCore/graphicsmanager.cpp DemoCore/basiccomponents.cpp)
+set(HEADERS DemoCore/demoapp.h DemoCore/ecs.h DemoCore/graphicsmanager.h DemoCore/basiccomponents.h)
 
 set(IMGUIPATH ../extern/imgui/)
 set(GUILibrary_HEADERS ${IMGUIPATH}/imgui.h ${IMGUIPATH}/backends/imgui_impl_sdl.h ${IMGUIPATH}/backends/imgui_impl_sdlrenderer.h)

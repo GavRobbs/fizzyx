@@ -2,6 +2,8 @@
 #define DEMOAPP_H
 
 #include <graphicsmanager.h>
+#include <ecs.h>
+
 #include <string>
 #include <imgui.h>
 #include <backends/imgui_impl_sdl.h>
@@ -18,9 +20,13 @@ class DemoApp
     virtual void setup();
     virtual void tearDown();
 
+    GraphicsManager & getGraphicsManager();
+    SceneManager & getSceneManager();
+
     protected:
     bool running{true};
     GraphicsManager graphicsManager;
+    SceneManager sceneManager;
 
     virtual void processEvent(const SDL_Event &event);
     virtual void drawGUI();

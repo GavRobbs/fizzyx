@@ -63,7 +63,7 @@ class SceneManager
 */
 class Component
 {
-    private:
+    protected:
     Entity * owner;
     unsigned int id;
 
@@ -76,6 +76,7 @@ class Component
     /* See the description of update in the entity class */
     virtual void update(float dt);
     void setOwner(Entity *owner);
+    Entity * getOwner();
     unsigned int getID();
 };
 
@@ -92,6 +93,7 @@ struct Transform
 class Entity
 {
     friend class Component;
+    friend class SceneManager;
 
     private:
     static unsigned int idTracker;
@@ -101,6 +103,8 @@ class Entity
     Transform transform;
 
     SceneManager * scene;
+
+    bool forDeletion{false};
 
     public:
     Entity();
@@ -149,6 +153,8 @@ class Entity
 
     const Transform & getTransform() const;
     void setTransform(const Transform &transform);
+
+    void Destroy();
 };
 
 #endif
