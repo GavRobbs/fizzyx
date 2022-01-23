@@ -16,6 +16,8 @@ class GraphicsManager
 
     void clear(int r, int g, int b, int a);
     void display();
+
+    void enableGUI();
     
     private:
     SDL_Window * window{nullptr};

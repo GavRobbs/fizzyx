@@ -14,32 +14,40 @@ class FireworksApp : public DemoApp
 
     }
 
-    void mainLoop()
+    void setup() override
     {
-        SDL_Event e;
 
-        while(isRunning())
-        {
-            while( SDL_PollEvent( &e ) != 0 )
-            {
-                //User requests quit
-                if( e.type == SDL_QUIT )
-                {
-                    running = false;
-                }
-            }
+    }
 
-            graphicsManager.clear(0, 0, 0, 0);
-            graphicsManager.display();
-            SDL_Delay(1);
-        }
+    void tearDown() override
+    {
+
+    }
+
+    protected:
+    void drawScene() override
+    {
+
+    }
+
+    void updateLogic() override
+    {
+
+    }
+
+    void drawGUI() override
+    {
+        bool show = true;
+        ImGui::ShowDemoWindow(&show);
     }
 };
 
 int main(int argc, char **argv)
 {
     FireworksApp fireworks{};
+    fireworks.setup();
     fireworks.mainLoop();
+    fireworks.tearDown();
 
     return 0;
 }
