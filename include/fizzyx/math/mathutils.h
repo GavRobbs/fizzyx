@@ -56,7 +56,7 @@ namespace math
         float getRandomFloat(float lowbound = 0.0f, float highbound = (float)RAND_MAX)
         {
             float diff = highbound - lowbound;
-            float rando = float(rand()) / float(RAND_MAX);
+            float rando = float(rand());
 
             return lowbound + (std::fmodf(rando, diff));
         }

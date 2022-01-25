@@ -6,12 +6,20 @@
 
 namespace fizzyx::tutorial
 {
+    /* A point mass physics entity. A point mass is infinitesmally small, but has a mass. This is a good starting point for simulating basic kinematics, without worrying about collision. */
     class PointMassEntity : public fizzyx::core::IPhysicsEntity
     {
         public:
 
         PointMassEntity();
         virtual ~PointMassEntity();
+
+        PointMassEntity(const PointMassEntity&) = delete;
+        PointMassEntity& operator=(const PointMassEntity&) = delete;
+
+        PointMassEntity(PointMassEntity &&other);
+        PointMassEntity& operator=(PointMassEntity &&other);
+
         
         void update(float dt) override;
 

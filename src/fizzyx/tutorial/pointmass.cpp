@@ -1,5 +1,6 @@
 #include <tutorial/pointmass.h>
 #include <cmath>
+#include <iostream>
 
 using namespace fizzyx::tutorial;
 
@@ -14,6 +15,36 @@ PointMassEntity::~PointMassEntity()
 
 }
 
+PointMassEntity::PointMassEntity(PointMassEntity &&other):position(other.position), velocity(other.velocity), acceleration(other.acceleration), impulse(other.impulse), force(other.force)
+{
+    mass = other.mass;
+    id = other.id;
+    gravity = other.gravity;
+    damping = other.damping;
+    forDeletion = other.forDeletion;
+}
+
+PointMassEntity& PointMassEntity::operator=(PointMassEntity &&other)
+{
+    if(this == &other)
+    {
+
+    } else{
+        position = other.position;
+        velocity = other.velocity;
+        acceleration = other.acceleration;
+        impulse = other.impulse;
+        force = other.force;
+        mass = other.mass;
+        id = other.id;
+        gravity = other.gravity;
+        damping = other.damping;
+        forDeletion = other.forDeletion;
+    }
+
+    return *this;
+}
+
 void PointMassEntity::update(float dt)
 {
     position += velocity * dt;
@@ -21,6 +52,7 @@ void PointMassEntity::update(float dt)
 
     math::Vector2 finalAccel{acceleration.x, acceleration.y + gravity};
     velocity = damped_velocity + (finalAccel * dt);
+
 }
 
 void PointMassEntity::setPosition(const math::Vector2 &position)

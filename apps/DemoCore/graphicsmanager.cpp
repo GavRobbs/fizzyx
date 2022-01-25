@@ -19,7 +19,7 @@ GraphicsManager::~GraphicsManager()
 
 void GraphicsManager::init(std::string name, int w, int h)
 {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_EVERYTHING);
     window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
     renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
 
@@ -27,7 +27,7 @@ void GraphicsManager::init(std::string name, int w, int h)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-    ImGui::StyleColorsDark();
+    ImGui::StyleColorsLight();
 
     ImGui_ImplSDL2_InitForSDLRenderer(window);
     ImGui_ImplSDLRenderer_Init(renderer);
@@ -104,7 +104,7 @@ void GraphicsManager::drawPoint(const math::Vector2 &position, const Color & col
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
     //The scaling also affects positioning, so we have to remove the effect of pointSize on the position
-    SDL_RenderDrawPoint(renderer, (int)(position.x/pointSize), (int)(position.y/pointSize));
+    SDL_RenderDrawPointF(renderer, position.x/pointSize, position.y/pointSize);
     SDL_RenderSetScale(renderer, 1.0f, 1.0f);
 }
 

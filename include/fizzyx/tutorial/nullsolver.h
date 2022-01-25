@@ -4,11 +4,16 @@
 #include <core/physicssolver.h>
 #include <collision/collisiondetector.h>
 
-//The null solver doesn't process collisions, its just a placeholder
-class NullSolver: public fizzyx::core::IPhysicsSolver
+namespace fizzyx::tutorial
 {
-    public:
-    void solve(fizzyx::collision::ICollisionData * collision, float dt);
-};
+    //The null solver doesn't process collisions, its just a placeholder
+    class NullSolver: public fizzyx::core::IPhysicsSolver
+    {
+        public:
+        void solve(fizzyx::collision::ICollisionData * collision, float dt);
+        fizzyx::core::IPhysicsSolver * clone();
+
+    };
+}
 
 #endif

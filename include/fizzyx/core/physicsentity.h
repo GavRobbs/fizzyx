@@ -21,6 +21,11 @@ namespace fizzyx
             public:
             virtual void update(float dt) = 0;
 
+            IPhysicsEntity(const IPhysicsEntity&) = delete;
+            IPhysicsEntity& operator =(const IPhysicsEntity&) = delete;
+            IPhysicsEntity(IPhysicsEntity&& other);
+            IPhysicsEntity& operator=(IPhysicsEntity &&other);
+
             IPhysicsEntity();
             virtual ~IPhysicsEntity();
 
@@ -65,13 +70,17 @@ namespace fizzyx
             virtual void setTorque(const float &torque);
             virtual void clearTorque();
 
+            static unsigned int idTracker;
+
+            void Destroy();
+            bool isForDeletion();
+
             protected:
             unsigned int id;
             float mass;
-            float inverse_mass;
             float gravity;
-            static unsigned int idTracker;
             float damping{0.999f};
+            bool forDeletion{false};
         };
     }
     

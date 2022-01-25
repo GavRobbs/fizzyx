@@ -20,6 +20,8 @@ namespace fizzyx::collision
     {
         public:
         virtual ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b) = 0;
+        virtual ICollisionDetector * clone() = 0;
+
     };
 
 }

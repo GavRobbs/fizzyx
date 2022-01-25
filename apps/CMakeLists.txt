@@ -11,5 +11,6 @@ add_library(${ThisName} STATIC ${SOURCES} ${HEADERS} ${GUILibrary_SOURCES} ${GUI
 target_link_libraries(${ThisName} PUBLIC MathLibrary Fizzyx SDL2::SDL2)
 target_include_directories(${ThisName} PUBLIC DemoCore/ ${IMGUIPATH})
 
-add_executable(Fireworks Fireworks/fireworks.cpp)
-target_link_libraries(Fireworks PUBLIC DemoCore)
+add_executable(Fireworks Fireworks/fireworks.cpp Fireworks/particlespawner.cpp Fireworks/fireworkscomponents.cpp Fireworks/particlespawner.h Fireworks/fireworkscomponents.h)
+target_link_libraries(Fireworks PUBLIC DemoCore FizzyxTutorial)
+target_include_directories(Fireworks PUBLIC DemoCore/ Fireworks/)

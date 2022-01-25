@@ -38,9 +38,22 @@ DemoApp::~DemoApp()
 void DemoApp::mainLoop()
 {
     SDL_Event e;
+    lastTime = SDL_GetTicks();
 
     while(running)
     {
+        //This bit of code locks us into 60 fps
+        uint32_t newTime = SDL_GetTicks();
+        uint32_t delta = newTime - lastTime;
+        if(delta < 17)
+        {
+            continue;
+        } else{
+
+            lastTime = newTime;
+            dt = ((float)delta) / 1000.0f;
+        }
+        
         updateLogic();
 
         while( SDL_PollEvent( &e ) != 0 )
@@ -58,6 +71,7 @@ void DemoApp::mainLoop()
         drawGUI();
         ImGui::Render();
         graphicsManager.clear(0, 0, 0, 0);
+        sceneManager.update(dt);
         drawScene();
         graphicsManager.display();
 

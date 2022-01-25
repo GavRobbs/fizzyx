@@ -17,9 +17,16 @@ namespace fizzyx
         collision::ICollisionDetector* collisionDetector;
         
         public:
+
         void update(float dt);
         PhysicsWorld();
         ~PhysicsWorld();
+
+        PhysicsWorld(const PhysicsWorld&) = delete;
+        PhysicsWorld& operator=(const PhysicsWorld&) = delete;
+        PhysicsWorld(PhysicsWorld &&other);
+        PhysicsWorld& operator=(PhysicsWorld &&other);
+
         void setSolver(core::IPhysicsSolver *solver);
         void setCollisionDetector(collision::ICollisionDetector *detector);
         

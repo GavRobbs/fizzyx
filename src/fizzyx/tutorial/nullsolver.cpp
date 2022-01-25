@@ -1,6 +1,14 @@
 #include <tutorial/nullsolver.h>
 
-void NullSolver::solve(fizzyx::collision::ICollisionData * collision, float dt)
+using namespace fizzyx::collision;
+using namespace fizzyx::tutorial;
+
+void NullSolver::solve(ICollisionData * collision, float dt)
 {
     
+}
+
+fizzyx::core::IPhysicsSolver * NullSolver::clone()
+{
+    return new NullSolver();
 }

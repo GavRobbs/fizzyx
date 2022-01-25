@@ -14,6 +14,7 @@ namespace fizzyx
         {
             public:
             virtual void solve(collision::ICollisionData * collision, float dt) = 0;
+            virtual IPhysicsSolver * clone() = 0;
         };
     }
 }

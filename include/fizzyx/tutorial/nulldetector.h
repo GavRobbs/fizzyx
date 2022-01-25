@@ -3,12 +3,17 @@
 
 #include <collision/collisiondetector.h>
 
-using namespace fizzyx::collision;
-
-class NullCollisionDetector : public ICollisionDetector
+namespace fizzyx::tutorial
 {
-    public:
-    ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b);
-};
+    class NullCollisionDetector : public fizzyx::collision::ICollisionDetector
+    {
+        public:
+        fizzyx::collision::ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b);
+        virtual ICollisionDetector * clone();
+    };
+
+}
+
+
 
 #endif

@@ -3,6 +3,8 @@
 
 using namespace fizzyx::core;
 
+unsigned int IPhysicsEntity::idTracker = 0;
+
 IPhysicsEntity::IPhysicsEntity():id(IPhysicsEntity::idTracker++)
 {
 
@@ -13,6 +15,33 @@ IPhysicsEntity::~IPhysicsEntity()
 
 }
 
+IPhysicsEntity::IPhysicsEntity(IPhysicsEntity&& other):id(other.id), damping(other.damping), mass(other.mass), gravity(other.gravity), forDeletion{forDeletion}
+{
+
+}
+
+IPhysicsEntity& IPhysicsEntity::operator=(IPhysicsEntity &&other)
+{
+    if(this == &other)
+    {
+
+    } else{
+        this->gravity = other.gravity;
+        this->mass = other.mass;
+        this->damping = other.damping;
+        this->id = other.id;
+        this->forDeletion = other.forDeletion;
+    }
+
+    return *this;
+}
+
+bool IPhysicsEntity::isForDeletion()
+{
+    return forDeletion;
+}
+
+
 void IPhysicsEntity::IPhysicsEntity::setID(unsigned int id)
 {
     this->id = id;
@@ -21,6 +50,11 @@ void IPhysicsEntity::IPhysicsEntity::setID(unsigned int id)
 unsigned int IPhysicsEntity::getID()
 {
     return id;
+}
+
+void IPhysicsEntity::Destroy()
+{
+    forDeletion = true;
 }
 
 math::Vector2 IPhysicsEntity::getPosition()

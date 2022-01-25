@@ -4,6 +4,11 @@
 
 using namespace fizzyx;
 
+PhysicsWorld::PhysicsWorld():solver{nullptr}, collisionDetector{nullptr}
+{
+
+}
+
 void PhysicsWorld::update(float dt)
 {
     /*
@@ -12,6 +17,11 @@ void PhysicsWorld::update(float dt)
     */
 
    //Need to add multiple loops here
+
+    if(entities.empty())
+    {
+        return;
+    }
 
     for(auto it = entities.begin(); it != std::prev(entities.end()); ++it)
     {
@@ -26,14 +36,29 @@ void PhysicsWorld::update(float dt)
 
         }
     }
+
+    for(auto it = entities.begin(); it != entities.end(); ++it)
+    {
+        it->get()->update(dt);
+    }
+
+    auto it = entities.begin();
+    while(it != entities.end())
+    {
+        if(it->get()->isForDeletion())
+        {
+            it = entities.erase(it);
+        } else{
+            ++it;
+        }
+    }
 }
 
 void PhysicsWorld::setCollisionDetector(collision::ICollisionDetector *detector)
 {
-    if(collisionDetector != nullptr)
+    if(this->collisionDetector != nullptr)
     {
         delete this->collisionDetector;
-        collisionDetector = nullptr;
     }
 
     this->collisionDetector = detector;
@@ -42,10 +67,9 @@ void PhysicsWorld::setCollisionDetector(collision::ICollisionDetector *detector)
 
 void PhysicsWorld::setSolver(core::IPhysicsSolver * solver)
 {
-    if(solver != nullptr)
+    if(this->solver != nullptr)
     {
         delete this->solver;
-        solver = nullptr;
     }
 
     this->solver = solver;
@@ -57,12 +81,16 @@ PhysicsWorld::~PhysicsWorld()
     {
         delete solver;
     }
+
+    if(collisionDetector != nullptr)
+    {
+        delete collisionDetector;
+    }
 }
 
 void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
 {
-    std::unique_ptr<core::IPhysicsEntity> entity_ptr(entity);
-    entities.push_back(std::move(entity_ptr));
+    entities.push_back(std::unique_ptr<core::IPhysicsEntity>(entity));
 }
 
  void PhysicsWorld::removeEntity(unsigned int id)
@@ -81,4 +109,48 @@ void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
 void PhysicsWorld::removeEntity(core::IPhysicsEntity *entity)
 {
     removeEntity(entity->getID());
+}
+
+PhysicsWorld::PhysicsWorld(PhysicsWorld &&other)
+{
+    for(int i = 0; i < other.entities.size(); ++i)
+    {
+        entities.push_back(std::move(other.entities[i]));
+    }
+
+    if(other.solver != nullptr)
+    {
+        solver = other.solver->clone();
+    }
+
+    if(other.collisionDetector != nullptr)
+    {
+        collisionDetector = other.collisionDetector->clone();
+    }
+}
+
+PhysicsWorld& PhysicsWorld::operator=(PhysicsWorld &&other)
+{
+    if(this == &other)
+    {
+
+    } else
+    {
+        for(int i = 0; i < other.entities.size(); ++i)
+        {
+            entities.push_back(std::move(other.entities[i]));
+        }
+
+        if(other.solver != nullptr)
+        {
+            solver = other.solver->clone();
+        }
+
+        if(other.collisionDetector != nullptr)
+        {
+            collisionDetector = other.collisionDetector->clone();
+        }
+    }
+
+    return *this;
 }
