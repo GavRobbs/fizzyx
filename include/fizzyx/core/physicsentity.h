@@ -26,6 +26,9 @@ namespace fizzyx
             IPhysicsEntity(IPhysicsEntity&& other);
             IPhysicsEntity& operator=(IPhysicsEntity &&other);
 
+            bool operator==(const IPhysicsEntity &other);
+            bool operator!=(const IPhysicsEntity &other);
+
             IPhysicsEntity();
             virtual ~IPhysicsEntity();
 
