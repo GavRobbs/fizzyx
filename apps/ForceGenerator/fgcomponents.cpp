@@ -4,9 +4,13 @@
 
 void SpringRendererComponent::render(float dt)
 {
+    /* Draws the line that we have used to represent the spring */
     math::Vector2 anchor = getOwner()->getTransform().position;
-    graphicsManager.drawLine(anchor - math::Vector2{-50.0f, 0.0f}, anchor + math::Vector2{-50.0f, 0.0f}, line_color);
-    graphicsManager.drawLine(anchor, boxMassEntity->getTransform().position, line_color);
+    graphicsManager.drawRectFilled(anchor - math::Vector2{0, 12.5f}, 400, 25, GraphicsManager::Color{0, 0, 255, 255});
+
+    math::Vector2 endPos = boxMassEntity->getTransform().position;
+    endPos -= offset;
+    graphicsManager.drawLine(anchor, endPos, line_color);
 }
 
 void SpringRendererComponent::setEnd(const math::Vector2& end)
@@ -35,10 +39,20 @@ const math::Vector2& SpringRendererComponent::getEnd()
     return this->boxMassEntity->getTransform().position;
 }
 
-SpringRendererComponent::SpringRendererComponent(const GraphicsManager& _graphics, Entity * massOnEnd, const GraphicsManager::Color& _linecolor, const GraphicsManager::Color& _boxcolor):Component(), graphicsManager(_graphics), line_color(_linecolor), boxMassEntity(massOnEnd)
+SpringRendererComponent::SpringRendererComponent(const GraphicsManager& _graphics, Entity * massOnEnd, const GraphicsManager::Color& _linecolor):Component(), graphicsManager(_graphics), line_color(_linecolor), boxMassEntity(massOnEnd)
 {
 }
 
 SpringRendererComponent::~SpringRendererComponent()
 {
+}
+
+void SpringRendererComponent::setOffset(const math::Vector2& offset)
+{
+    this->offset = offset;    
+}
+
+const math::Vector2 & SpringRendererComponent::getOffset() const
+{
+    return offset;
 }

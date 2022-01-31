@@ -47,12 +47,15 @@ PointMassEntity& PointMassEntity::operator=(PointMassEntity &&other)
 
 void PointMassEntity::update(float dt)
 {
+    math::Vector2 delta_velocity = impulse / mass;
+    impulse = math::Vector2{0.0f, 0.0f};
+    velocity += delta_velocity;
+
     position += velocity * dt;
     math::Vector2 damped_velocity = velocity * std::powf(damping, dt);
 
     math::Vector2 finalAccel{acceleration.x, acceleration.y + gravity};
     velocity = damped_velocity + (finalAccel * dt);
-
 }
 
 void PointMassEntity::setPosition(const math::Vector2 &position)

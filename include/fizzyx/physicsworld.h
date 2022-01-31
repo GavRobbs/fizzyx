@@ -42,6 +42,7 @@ namespace fizzyx
         void addEntity(core::IPhysicsEntity *entity);
         void removeEntity(unsigned int id);
         void removeEntity(core::IPhysicsEntity *entity);
+        void emptyWorld();
         core::IPhysicsEntity * getEntity(unsigned int id);
 
         void addForceGeneratorPair(core::IPhysicsEntity* entity, core::ForceGenerator * generator);

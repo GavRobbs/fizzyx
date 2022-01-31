@@ -17,17 +17,20 @@ class SpringRendererComponent : public IRenderable, public Component
 
     const math::Vector2& getAnchor();
     const math::Vector2& getEnd();
+
+    void setOffset(const math::Vector2& offset);
+    const math::Vector2 & getOffset() const;
     
-    SpringRendererComponent(const GraphicsManager& _graphics, Entity *massOnEnd, const GraphicsManager::Color& _linecolor, const GraphicsManager::Color& _boxcolor);
+    SpringRendererComponent(const GraphicsManager& _graphics, Entity *massOnEnd, const GraphicsManager::Color& _linecolor);
 
     ~SpringRendererComponent();
 
     private:
     const GraphicsManager& graphicsManager;
     const GraphicsManager::Color line_color;
-    const GraphicsManager::Color box_color;
 
     Entity * boxMassEntity{nullptr};
+    math::Vector2 offset;
 };
 
 #endif

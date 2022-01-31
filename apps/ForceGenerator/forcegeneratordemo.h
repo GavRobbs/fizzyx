@@ -22,15 +22,22 @@ class ForceGeneratorDemoApp : public DemoApp
     void tearDown() override;
 
     protected:
-    //void processEvent(const SDL_Event &event) override;
-    //void drawGUI() override;
-    //void drawScene() override;
-    //void updateLogic() override;
-
+    void drawGUI() override;
+    
     private:
     AnchoredSpringForceGenerator * asfg;
     Entity * box{nullptr};
     fizzyx::tutorial::PointMassEntity * pointMass{nullptr};
+
+    /* These are the default parameters, used when the application has just started or is reset*/
+    const float defaultSpringConstant{0.0025f};
+    const float defaultRestLength{100.0f};
+
+    float currentSpringConstant{defaultSpringConstant};
+    float currentRestLength{defaultRestLength};
+
+    void reset();
+    void recreateDemo();
 };
 
 

@@ -45,6 +45,13 @@ void SceneManager::render(float dt)
     }
 
 }
+
+void SceneManager::resetScene()
+{
+    physicsWorld.emptyWorld();
+    entities.clear();
+}
+
     
 void SceneManager::processThinking(float dt)
 {

@@ -121,6 +121,11 @@ PhysicsWorld::~PhysicsWorld()
     }
 }
 
+void PhysicsWorld::emptyWorld()
+{
+    entities.clear();
+}
+
 void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
 {
     entities.push_back(std::unique_ptr<core::IPhysicsEntity>(entity));

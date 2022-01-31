@@ -55,6 +55,7 @@ class SceneManager
     void addEntity(Entity * entity);
     void removeEntity(Entity * entity);
     void removeEntity(const unsigned int &id);
+    void resetScene();
 
     size_t getEntityCount();
 

@@ -18,8 +18,15 @@ class AnchoredSpringForceGenerator : public fizzyx::core::ForceGenerator
     void setSpringConstant(const float & springConstant);
     const float & getSpringConstant() const;
 
+    void setRestLength(const float & restLength);
+    const float & getRestLength() const;
+
+    void setOffset(const math::Vector2& offset);
+    const math::Vector2 & getOffset() const;
+
     private:
     math::Vector2 anchorPosition;
+    math::Vector2 offset;
     float springConstant;
     float restLength;
 };
