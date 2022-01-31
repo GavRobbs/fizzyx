@@ -15,6 +15,6 @@ add_executable(Fireworks Fireworks/fireworks.cpp Fireworks/particlespawner.cpp F
 target_link_libraries(Fireworks PUBLIC DemoCore FizzyxTutorial)
 target_include_directories(Fireworks PUBLIC DemoCore/ Fireworks/)
 
-add_executable(ForceGenerator ForceGenerator/forcegeneratordemo.cpp ForceGenerator/forcegeneratordemo.h ForceGenerator/anchoredspringfg.cpp ForceGenerator/anchoredspringfg.h)
+add_executable(ForceGenerator ForceGenerator/forcegeneratordemo.cpp ForceGenerator/forcegeneratordemo.h ForceGenerator/anchoredspringfg.cpp ForceGenerator/anchoredspringfg.h ForceGenerator/fgcomponents.cpp ForceGenerator/fgcomponents.h)
 target_link_libraries(ForceGenerator PUBLIC DemoCore FizzyxTutorial)
 target_include_directories(ForceGenerator PUBLIC DemoCore/ ForceGenerator/)

@@ -9,7 +9,7 @@
 class AnchoredSpringForceGenerator : public fizzyx::core::ForceGenerator
 {
     public:
-    AnchoredSpringForceGenerator(const math::Vector2 anchorPosition, float springConstant);
+    AnchoredSpringForceGenerator(const math::Vector2 anchorPosition, const float& restLength, const float& springConstant);
     void update(fizzyx::core::IPhysicsEntity * body, float dt) override;
 
     void setAnchorPosition(const math::Vector2 & anchorPosition);
@@ -21,6 +21,7 @@ class AnchoredSpringForceGenerator : public fizzyx::core::ForceGenerator
     private:
     math::Vector2 anchorPosition;
     float springConstant;
+    float restLength;
 };
 
 #endif

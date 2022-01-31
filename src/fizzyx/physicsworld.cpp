@@ -1,6 +1,7 @@
 #include <physicsworld.h>
 #include <core/physicsentity.h>
 #include <core/forcegenerator.h>
+#include <iostream>
 #include <memory>
 
 using namespace fizzyx;
@@ -18,6 +19,7 @@ void PhysicsWorld::update(float dt)
 
     if(entities.empty())
     {
+        std::cout << "No update" << std::endl;
         return;
     }
 
@@ -40,6 +42,11 @@ void PhysicsWorld::update(float dt)
 
     for(auto it = fg_registry.begin(); it != fg_registry.end(); ++it)
     {
+        if(it->forceGenerator == nullptr || it->entity == nullptr)
+        {
+            continue;
+        }
+
         it->forceGenerator->update(it->entity, dt);
     }
 

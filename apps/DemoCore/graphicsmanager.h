@@ -15,8 +15,8 @@ class GraphicsManager
     void init(std::string name, int w, int h);
     void terminate();
 
-    void clear(int r, int g, int b, int a);
-    void display();
+    void clear(int r, int g, int b, int a) const;
+    void display() const;
 
     void enableGUI();
 
@@ -43,11 +43,13 @@ class GraphicsManager
         }
     };
 
-    void drawRectFilled(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees = 0.0f, const math::Vector2 & scale = math::Vector2{1.0f, 1.0f});
+    void drawRectFilled(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees = 0.0f, const math::Vector2 & scale = math::Vector2{1.0f, 1.0f}) const;
 
-    void drawRectOutline(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees = 0.0f, const math::Vector2 & scale = math::Vector2{1.0f, 1.0f});
+    void drawRectOutline(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees = 0.0f, const math::Vector2 & scale = math::Vector2{1.0f, 1.0f}) const;
 
-    void drawPoint(const math::Vector2 &position, const Color & color, const float &pointSize = 1.0f);
+    void drawLine(const math::Vector2& start, const math::Vector2& end, const Color& color, const float& thickness = 1.0f) const;
+
+    void drawPoint(const math::Vector2 &position, const Color & color, const float &pointSize = 1.0f) const;
 
     
     private:

@@ -39,13 +39,13 @@ void GraphicsManager::terminate()
     SDL_Quit();
 }
 
-void GraphicsManager::clear(int r=0, int g=0, int b=0, int a=0)
+void GraphicsManager::clear(int r=0, int g=0, int b=0, int a=0) const
 {
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
     SDL_RenderClear(renderer);
 }
 
-void GraphicsManager::display()
+void GraphicsManager::display() const
 {
     ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
     SDL_RenderPresent(renderer);
@@ -58,7 +58,7 @@ void GraphicsManager::enableGUI()
     ImGui::NewFrame();
 }
 
-void GraphicsManager::drawRectFilled(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees, const math::Vector2 & scale)
+void GraphicsManager::drawRectFilled(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees, const math::Vector2 & scale) const
 {
     SDL_FRect resultantPosition;
     resultantPosition.x = origin_position.x - ((float)width) * scale.x/ 2.0f;
@@ -78,7 +78,7 @@ void GraphicsManager::drawRectFilled(const math::Vector2 &origin_position, const
     target = nullptr;   
 }
 
-void GraphicsManager::drawRectOutline(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees, const math::Vector2 & scale)
+void GraphicsManager::drawRectOutline(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees, const math::Vector2 & scale) const
 {
     SDL_FRect resultantPosition;
     resultantPosition.x = origin_position.x - ((float)width) * scale.x/ 2.0f;
@@ -98,13 +98,21 @@ void GraphicsManager::drawRectOutline(const math::Vector2 &origin_position, cons
     target = nullptr; 
 }
 
-void GraphicsManager::drawPoint(const math::Vector2 &position, const Color & color, const float &pointSize)
+void GraphicsManager::drawPoint(const math::Vector2 &position, const Color & color, const float &pointSize) const
 {
     SDL_RenderSetScale(renderer, pointSize, pointSize);
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
     //The scaling also affects positioning, so we have to remove the effect of pointSize on the position
     SDL_RenderDrawPointF(renderer, position.x/pointSize, position.y/pointSize);
+    SDL_RenderSetScale(renderer, 1.0f, 1.0f);
+}
+
+void GraphicsManager::drawLine(const math::Vector2& start, const math::Vector2& end, const Color& color, const float& thickness) const
+{
+    SDL_RenderSetScale(renderer, thickness, thickness);
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderDrawLineF(renderer, start.x/thickness, start.y/thickness, end.x/thickness, end.y/thickness);
     SDL_RenderSetScale(renderer, 1.0f, 1.0f);
 }
 
