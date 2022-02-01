@@ -2,8 +2,7 @@
 #define FIZZYX_ENTITY_H
 
 #include <math/vector2.h>
-
-//Need to create collision library stub
+#include <collision/collisionshape.h>
 
 namespace fizzyx
 {
@@ -20,6 +19,7 @@ namespace fizzyx
         {
             public:
             virtual void update(float dt) = 0;
+            virtual fizzyx::collision::ICollisionShape * getBodyShape() = 0;
 
             IPhysicsEntity(const IPhysicsEntity&) = delete;
             IPhysicsEntity& operator =(const IPhysicsEntity&) = delete;

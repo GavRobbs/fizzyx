@@ -63,6 +63,11 @@ void PointMassEntity::update(float dt)
     velocity = damped_velocity + (finalAccel * dt);
 }
 
+fizzyx::collision::ICollisionShape * PointMassEntity::getBodyShape()
+{
+    return nullptr;
+}
+
 void PointMassEntity::setPosition(const math::Vector2 &position)
 {
     this->position = position;

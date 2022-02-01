@@ -2,6 +2,7 @@
 #define POINT_MASS_RB_H
 
 #include <core/physicsentity.h>
+#include <collision/collisionshape.h>
 #include <math/vector2.h>
 
 namespace fizzyx::tutorial
@@ -22,6 +23,8 @@ namespace fizzyx::tutorial
 
         
         void update(float dt) override;
+        fizzyx::collision::ICollisionShape * getBodyShape() override;
+
 
         void setPosition(const math::Vector2 &position) override;
         void setVelocity(const math::Vector2 &velocity) override;

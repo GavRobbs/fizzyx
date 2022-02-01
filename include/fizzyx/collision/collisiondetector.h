@@ -9,8 +9,6 @@
 
 struct ICollisionShape;
 
-
-
 namespace fizzyx::collision
 {
 
