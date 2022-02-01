@@ -47,6 +47,8 @@ class GraphicsManager
 
     void drawRectOutline(const math::Vector2 &origin_position, const int & width, const int & height, const Color & color, const float & rotation_degrees = 0.0f, const math::Vector2 & scale = math::Vector2{1.0f, 1.0f}) const;
 
+    void drawCircleOutline(const math::Vector2 &origin_position, float radius, const Color & color, const int& numSegments=48) const;
+
     void drawLine(const math::Vector2& start, const math::Vector2& end, const Color& color, const float& thickness = 1.0f) const;
 
     void drawPoint(const math::Vector2 &position, const Color & color, const float &pointSize = 1.0f) const;

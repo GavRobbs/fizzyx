@@ -6,6 +6,7 @@
 #include <math/mat22.h>
 #include <math/mathutils.h>
 #include <iostream>
+#include <vector>
 
 GraphicsManager::GraphicsManager()
 {
@@ -66,7 +67,7 @@ void GraphicsManager::drawRectFilled(const math::Vector2 &origin_position, const
     resultantPosition.w = (float)width;
     resultantPosition.h = (float)height;
 
-    SDL_Texture * target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, ((float)width) * scale.x, ((float)height) * scale.y);
+    SDL_Texture * target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)((float)width * scale.x), (int)((float)height * scale.y));
     SDL_SetRenderTarget(renderer, target);
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     SDL_RenderClear(renderer);
@@ -86,7 +87,7 @@ void GraphicsManager::drawRectOutline(const math::Vector2 &origin_position, cons
     resultantPosition.w = (float)width;
     resultantPosition.h = (float)height;
 
-    SDL_Texture * target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, ((float)width) * scale.x, ((float)height) * scale.y);
+    SDL_Texture * target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)((float)width * scale.x), (int)((float)height * scale.y));
     SDL_SetRenderTarget(renderer, target);
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     SDL_RenderDrawRect(renderer, NULL);
@@ -116,3 +117,31 @@ void GraphicsManager::drawLine(const math::Vector2& start, const math::Vector2& 
     SDL_RenderSetScale(renderer, 1.0f, 1.0f);
 }
 
+void GraphicsManager::drawCircleOutline(const math::Vector2 &origin_position, float radius, const Color & color, const int& numSegments) const
+{
+    //360 degrees in a circle
+    const float TWOPI = 6.2831853f;
+    float step = TWOPI / (float)numSegments;
+
+    /* Allocate the space for the lines here, we add an extra point to enable the formation of a closed loop*/
+    SDL_FPoint * points = new SDL_FPoint[numSegments + 1];
+
+    SDL_FPoint temp;
+
+    for(int i = 0; i < numSegments; ++i)
+    {
+        temp.x = radius * std::cosf(step * (float)i) + origin_position.x;
+        temp.y = radius * std::sinf(step * (float)i) + origin_position.y;
+        points[i] = temp;
+    }
+
+    /* Manually add the final point to close the loop - we don't have to calculate it as cos 360 = 1 and sin 360 = 0 */
+    temp.x = radius + origin_position.x;
+    temp.y = 0 + origin_position.y;
+    points[numSegments] = temp;
+
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderDrawLinesF(renderer, points, numSegments + 1);
+
+    delete [] points;
+}
