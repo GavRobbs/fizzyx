@@ -26,7 +26,7 @@ void BoxRendererComponent::render(float dt)
     }
 }
 
-CircleRendererComponent::CircleRendererComponent(const GraphicsManager& _graphics, const GraphicsManager::Color& color, const float & radius, bool filled=true):Component(), graphicsManager(_graphics), color(color), radius(radius), filled(filled)
+CircleRendererComponent::CircleRendererComponent(const GraphicsManager& _graphics, const GraphicsManager::Color& color, const float & radius, bool filled):Component(), graphicsManager(_graphics), color(color), radius(radius), filled(filled)
 {
 
 }

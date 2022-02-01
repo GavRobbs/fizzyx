@@ -18,3 +18,7 @@ target_include_directories(Fireworks PUBLIC DemoCore/ Fireworks/)
 add_executable(ForceGenerator ForceGenerator/forcegeneratordemo.cpp ForceGenerator/forcegeneratordemo.h ForceGenerator/anchoredspringfg.cpp ForceGenerator/anchoredspringfg.h ForceGenerator/fgcomponents.cpp ForceGenerator/fgcomponents.h)
 target_link_libraries(ForceGenerator PUBLIC DemoCore FizzyxTutorial)
 target_include_directories(ForceGenerator PUBLIC DemoCore/ ForceGenerator/)
+
+add_executable(Bounce Bounce/bouncedemo.cpp Bounce/bouncedemo.h)
+target_link_libraries(Bounce PUBLIC DemoCore FizzyxTutorial)
+target_include_directories(Bounce PUBLIC DemoCore/ Bounce/)

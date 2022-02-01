@@ -84,7 +84,7 @@ void PhysicsWorld::processForceGenerators(const float & dt)
     }
 }
 
-void PhysicsWorld::updateAllEntities(const float & dt = 0.0f)
+void PhysicsWorld::updateAllEntities(const float & dt)
 {
     for(auto it = entities.begin(); it != entities.end(); ++it)
     {
