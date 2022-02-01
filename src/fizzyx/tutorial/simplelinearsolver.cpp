@@ -63,5 +63,5 @@ void SimpleLinearSolver::resolveInterpenetration(fizzyx::collision::ICollisionDa
 
     math::Vector2 pos_b = collision->b->getPosition();
     pos_b += movementPerInverseMass * collision->b->getInverseMass() * -1.0f;
-    collision->a->setPosition(pos_b);
+    collision->b->setPosition(pos_b);
 }
