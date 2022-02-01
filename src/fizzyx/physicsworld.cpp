@@ -42,33 +42,38 @@ void PhysicsWorld::resolveCollisionPairs(const float & dt)
     }
 
     //We then resolve the contact pair with the highest closing velocity first
-    for(size_t i = 0; i < numIterations * collisions.size(); ++i)
+    for(size_t j = 0; j < numIterations; ++j)
     {
-        float maxCV = std::numeric_limits<float>::lowest();
-        size_t maxIndex = collisions.size();
-
-        for(size_t j = 0; j < collisions.size(); ++j)
+        for(size_t i = 0; i < collisions.size(); ++i)
         {
-            float cv = collisions[j]->getClosingVelocity();
-            if(cv > 0.0f && cv > maxCV)
+            float maxCV = std::numeric_limits<float>::lowest();
+            size_t maxIndex = collisions.size();
+
+            for(size_t j = 0; j < collisions.size(); ++j)
             {
-                maxCV = cv;
-                maxIndex = j;
+                float cv = collisions[j]->getClosingVelocity();
+                if(cv > 0.0f && cv > maxCV)
+                {
+                    maxCV = cv;
+                    maxIndex = j;
+                }
             }
+
+            if(maxIndex == collisions.size())
+            {
+                break;
+            }
+
+            if(solver != nullptr)
+            {
+                solver->solve(collisions[i].get(), dt);
+            }
+
+            ++i;
         }
 
-        if(maxIndex == collisions.size())
-        {
-            break;
-        }
-
-        if(solver != nullptr)
-        {
-            solver->solve(collisions[i].get(), dt);
-        }
-
-        ++i;
     }
+    
 }
 
 void PhysicsWorld::processForceGenerators(const float & dt)
