@@ -13,7 +13,7 @@ fizzyx::collision::ICollisionData * PointMassCollisionDetector::detectCollision(
         PointMassCollisionData * result = new PointMassCollisionData;
         result->a = a;
         result->b = b;
-        result->collisionNormal = a->getPosition() - b->getPosition();
+        result->collisionNormal = (a->getPosition() - b->getPosition()).getNormalized();
         result->penetrationDepth = (2.0f * massRadius) - dist;
         return result;
     } else
