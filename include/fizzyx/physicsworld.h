@@ -24,6 +24,12 @@ namespace fizzyx
         };
 
         std::vector<ForceGeneratorPair> fg_registry;
+
+        void resolveCollisionPairs(const float & dt = 0.0f);
+        void processForceGenerators(const float & dt = 0.0f);
+        void updateAllEntities(const float & dt = 0.0f);
+        void deleteFlaggedEntities();
+
         
         public:
 

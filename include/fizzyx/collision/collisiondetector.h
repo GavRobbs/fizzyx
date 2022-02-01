@@ -14,6 +14,7 @@ namespace fizzyx::collision
         float penetrationDepth;
 
         virtual void invert();
+        virtual float getClosingVelocity();
     };
 
     class ICollisionDetector

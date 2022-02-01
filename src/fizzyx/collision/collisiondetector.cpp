@@ -10,3 +10,8 @@ void ICollisionData::invert()
     b = temp;
     collisionNormal = collisionNormal * -1.0f;
 }
+
+float ICollisionData::getClosingVelocity()
+{
+    return 0.0f;
+}
