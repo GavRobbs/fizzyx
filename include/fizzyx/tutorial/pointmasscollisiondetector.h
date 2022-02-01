@@ -8,7 +8,7 @@ namespace fizzyx::tutorial
     class PointMassCollisionDetector : public fizzyx::collision::ICollisionDetector
     {
         public:
-        fizzyx::collision::ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b);
+        fizzyx::collision::ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b) override;
         ICollisionDetector * clone() override;
 
         void setCollisionRadius(const float & radius);
