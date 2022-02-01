@@ -5,7 +5,7 @@
 #include <backends/imgui_impl_sdlrenderer.h>
 #include <math/mat22.h>
 #include <math/mathutils.h>
-#include <iostream>
+#include <algorithm> 
 #include <vector>
 
 GraphicsManager::GraphicsManager()
@@ -145,3 +145,56 @@ void GraphicsManager::drawCircleOutline(const math::Vector2 &origin_position, fl
 
     delete [] points;
 }
+
+void GraphicsManager::drawCircleFilled(const math::Vector2 &origin_position, float radius, const Color & color, const int& numSegments) const
+{
+    const float TWOPI = 6.2831853f;
+    float step = TWOPI / (float)numSegments;
+
+    /* Allocate the space for the lines here, we add an extra point to enable the formation of a closed loop*/
+    SDL_FPoint * points = new SDL_FPoint[numSegments + 2];
+    int * indices = new int[(numSegments + 1) * 3];
+    SDL_Color* colors = new SDL_Color[numSegments + 2];
+
+    SDL_Color base;
+    base.r = color.r;
+    base.g = color.g;
+    base.b = color.b;
+    base.a = color.a;
+
+    std::fill(colors, colors + numSegments + 2, base);
+
+    SDL_FPoint temp;
+
+    for(int i = 0; i < numSegments; ++i)
+    {
+        temp.x = radius * std::cosf(step * (float)i) + origin_position.x;
+        temp.y = radius * std::sinf(step * (float)i) + origin_position.y;
+        points[i] = temp;
+    }
+
+    /* Manually add the final point to close the loop - we don't have to calculate it as cos 360 = 1 and sin 360 = 0 */
+    temp.x = radius + origin_position.x;
+    temp.y = 0 + origin_position.y;
+    points[numSegments] = temp;
+
+    /* Manually add the center point to close our triangles */
+    temp.x = origin_position.x;
+    temp.y = origin_position.y;
+    points[numSegments + 1] = temp;
+
+    for(int i = 0; i < numSegments + 1; ++i)
+    {
+        indices[i * 3] = i;
+        indices[(i * 3) + 1] = numSegments + 1;
+        indices[(i * 3) + 2] = (i + 1) % numSegments;
+    }
+
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderGeometryRaw(renderer, nullptr, (float*)points, sizeof(float) * 2, colors, sizeof(SDL_Color), nullptr, 0, numSegments + 2, indices, (numSegments+1) * 3, sizeof(int));
+
+    delete [] points;
+    delete [] indices;
+
+}
+
