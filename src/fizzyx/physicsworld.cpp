@@ -14,6 +14,11 @@ PhysicsWorld::PhysicsWorld():solver{nullptr}, collisionDetector{nullptr}
 
 void PhysicsWorld::resolveCollisionPairs(const float & dt)
 {
+    if(collisionDetector == nullptr)
+    {
+        return;
+    }
+
     uint8_t numIterations = 3;
     std::vector<std::unique_ptr<collision::ICollisionData>> collisions;
 

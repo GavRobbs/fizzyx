@@ -9,7 +9,7 @@ namespace fizzyx::tutorial
     {
         public:
         fizzyx::collision::ICollisionData * detectCollision(fizzyx::core::IPhysicsEntity * a, fizzyx::core::IPhysicsEntity * b);
-        virtual ICollisionDetector * clone();
+        ICollisionDetector * clone() override;
     };
 
 }

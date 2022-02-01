@@ -107,6 +107,16 @@ float IPhysicsEntity::getMass()
     return mass;
 }
 
+float IPhysicsEntity::getInverseMass()
+{
+    if(mass == 0.0f)
+    {
+        return 0.0f;
+    } else{
+        return 1.0f/mass;
+    }
+}
+
 void IPhysicsEntity::setMass(const float &mass)
 {
     this->mass = mass;
@@ -204,4 +214,14 @@ void IPhysicsEntity::setTorque(const float &torque)
 void IPhysicsEntity::clearTorque()
 {
 
+}
+
+void IPhysicsEntity::setMaterial(const PhysicsMaterial & mat)
+{
+    material = mat;
+}
+
+const PhysicsMaterial& IPhysicsEntity::getPhysicsMaterial()
+{
+    return material;
 }

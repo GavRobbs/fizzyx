@@ -13,5 +13,5 @@ void ICollisionData::invert()
 
 float ICollisionData::getClosingVelocity()
 {
-    return 0.0f;
+    return math::Vector2::dotProduct(a->getVelocity() - b->getVelocity(), collisionNormal);
 }

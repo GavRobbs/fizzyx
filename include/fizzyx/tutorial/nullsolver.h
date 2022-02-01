@@ -11,7 +11,7 @@ namespace fizzyx::tutorial
     {
         public:
         void solve(fizzyx::collision::ICollisionData * collision, float dt);
-        fizzyx::core::IPhysicsSolver * clone();
+        fizzyx::core::IPhysicsSolver * clone() override;
 
     };
 }

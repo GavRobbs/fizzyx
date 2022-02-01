@@ -47,7 +47,10 @@ namespace fizzyx
             virtual float getTorque();
           
             float getMass();
+            float getInverseMass();
             void setMass(const float &mass);
+
+
             float getGravity();
             void setGravity(const float &gravity);
 
@@ -73,17 +76,23 @@ namespace fizzyx
             virtual void setTorque(const float &torque);
             virtual void clearTorque();
 
+            virtual void setMaterial(const PhysicsMaterial & mat);
+            const PhysicsMaterial& getPhysicsMaterial();
+
             static unsigned int idTracker;
 
             void Destroy();
             bool isForDeletion();
 
             protected:
+
             unsigned int id;
-            float mass;
+            float mass{1.0f};
             float gravity;
             float damping{0.999f};
             bool forDeletion{false};
+
+            PhysicsMaterial material;
         };
     }
     
