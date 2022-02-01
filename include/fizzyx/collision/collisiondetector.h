@@ -3,6 +3,7 @@
 
 #include <core/physicsentity.h>
 #include <math/vector2.h>
+#include <cstdint>
 
 namespace fizzyx::collision
 {

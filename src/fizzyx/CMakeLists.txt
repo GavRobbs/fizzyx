@@ -7,8 +7,8 @@ set(CORE_SOURCES core/physicsentity.cpp core/physicssolver.cpp core/forcegenerat
 set(CORE_HEADERS ../../include/fizzyx/core/physicsentity.h ../../include/fizzyx/core/physicssolver.h ../../include/fizzyx/core/forcegenerator.h)
 
 set(CollisionLibName FizzyxCollision)
-set(COLLISION_SOURCES collision/collisiondetector.cpp)
-set(COLLISION_HEADERS ../../include/fizzyx/collision/collisiondetector.h)
+set(COLLISION_SOURCES collision/collisiondetector.cpp collision/collisionshape.cpp)
+set(COLLISION_HEADERS ../../include/fizzyx/collision/collisiondetector.h ../../include/fizzyx/collision/collisionshape.h)
 
 set(MathLibName MathLibrary)
 set(MATH_SOURCES math/vector2.cpp math/vector3.cpp math/mat22.cpp math/mat33.cpp math/mathutils.cpp)
