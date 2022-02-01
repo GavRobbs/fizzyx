@@ -7,8 +7,8 @@ set(CORE_SOURCES core/physicsentity.cpp core/physicssolver.cpp core/forcegenerat
 set(CORE_HEADERS ../../include/fizzyx/core/physicsentity.h ../../include/fizzyx/core/physicssolver.h ../../include/fizzyx/core/forcegenerator.h)
 
 set(CollisionLibName FizzyxCollision)
-set(COLLISION_SOURCES collision/collisiondetector.cpp)
-set(COLLISION_HEADERS ../../include/fizzyx/collision/collisiondetector.h)
+set(COLLISION_SOURCES collision/collisiondetector.cpp collision/collisionshape.cpp collision/circle.cpp collision/box.cpp collision/polygon.cpp)
+set(COLLISION_HEADERS ../../include/fizzyx/collision/collisiondetector.h ../../include/fizzyx/collision/collisionshape.h ../../include/fizzyx/collision/circle.h ../../include/fizzyx/collision/box.h ../../include/fizzyx/collision/polygon.h)
 
 set(MathLibName MathLibrary)
 set(MATH_SOURCES math/vector2.cpp math/vector3.cpp math/mat22.cpp math/mat33.cpp math/mathutils.cpp)
@@ -17,8 +17,8 @@ set(MATH_HEADERS ../../include/fizzyx/math/vector2.h ../../include/fizzyx/math/v
 set(TutorialName FizzyxTutorial)
 set(TutorialSourcesFolder tutorial)
 set(TutorialHeadersFolder ../../include/fizzyx/tutorial)
-set(TUTORIAL_SOURCES ${TutorialSourcesFolder}/pointmass.cpp ${TutorialSourcesFolder}/nullsolver.cpp ${TutorialSourcesFolder}/nulldetector.cpp ${TutorialSourcesFolder}/pointmasscollisiondetector.cpp ${TutorialSourcesFolder}/simplelinearsolver.cpp)
-set(TUTORIAL_HEADERS ${TutorialHeadersFolder}/pointmass.h ${TutorialHeadersFolder}/nullsolver.h ${TutorialHeadersFolder}/nulldetector.h ${TutorialHeadersFolder}/pointmasscollisiondetector.h ${TutorialHeadersFolder}/simplelinearsolver.h)
+set(TUTORIAL_SOURCES ${TutorialSourcesFolder}/pointmass.cpp ${TutorialSourcesFolder}/nullsolver.cpp ${TutorialSourcesFolder}/nulldetector.cpp ${TutorialSourcesFolder}/pointmasscollisiondetector.cpp ${TutorialSourcesFolder}/simplelinearsolver.cpp ${TutorialSourcesFolder}/simplecollisiondetector.cpp)
+set(TUTORIAL_HEADERS ${TutorialHeadersFolder}/pointmass.h ${TutorialHeadersFolder}/nullsolver.h ${TutorialHeadersFolder}/nulldetector.h ${TutorialHeadersFolder}/pointmasscollisiondetector.h ${TutorialHeadersFolder}/simplelinearsolver.h ${TutorialHeadersFolder}/simplecollisiondetector.h)
 
 add_library(${MathLibName} STATIC ${MATH_SOURCES} ${MATH_HEADERS})
 target_include_directories(${MathLibName} PUBLIC ../../include/fizzyx/)
