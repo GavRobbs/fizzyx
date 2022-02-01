@@ -32,6 +32,8 @@ void BounceDemo::recreateDemo()
 {
     fizzyx::PhysicsWorld & pWorld = sceneManager.getPhysicsWorld();
 
+    fizzyx::core::PhysicsMaterial material{0.5f, 0.0f, 0.0f};
+
     ball1 = new Entity{};
     Transform t = ball1->getTransform();
     t.position = math::Vector2{224.0f, 400.0f};
@@ -41,6 +43,7 @@ void BounceDemo::recreateDemo()
     ball1body->setMass(ball1_current_mass);
     ball1body->setGravity(0.0f);
     ball1body->setPosition(t.position);
+    ball1body->setMaterial(material);
     pWorld.addEntity(ball1body);
     auto * sdrb1 = new SimpleDynamicRigidbodyComponent{};
     sdrb1->setEntity(ball1body);
@@ -57,6 +60,7 @@ void BounceDemo::recreateDemo()
     ball2body->setMass(ball2_current_mass);
     ball2body->setGravity(0.0f);
     ball2body->setPosition(t2.position);
+    ball2body->setMaterial(material);
     pWorld.addEntity(ball2body);
     auto * sdrb2 = new SimpleDynamicRigidbodyComponent{};
     sdrb2->setEntity(ball2body);

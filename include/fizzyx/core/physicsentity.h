@@ -11,9 +11,9 @@ namespace fizzyx
     {
         struct PhysicsMaterial
         {
+            float restitution;
             float static_friction;
             float dynamic_friction;
-            float restitution;
         };
 
         class IPhysicsEntity
