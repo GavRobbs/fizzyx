@@ -49,6 +49,8 @@ class GraphicsManager
 
     void drawCircleOutline(const math::Vector2 &origin_position, float radius, const Color & color, const int& numSegments=48) const;
 
+    void drawCircleFilled(const math::Vector2 &origin_position, float radius, const Color & color, const int& numSegments=48) const;
+
     void drawLine(const math::Vector2& start, const math::Vector2& end, const Color& color, const float& thickness = 1.0f) const;
 
     void drawPoint(const math::Vector2 &position, const Color & color, const float &pointSize = 1.0f) const;
