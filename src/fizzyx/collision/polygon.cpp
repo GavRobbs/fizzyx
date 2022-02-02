@@ -2,7 +2,7 @@
 
 using namespace fizzyx::collision;
 
-uint8_t Polygon::getShapeTypeId() const
+std::uint8_t Polygon::getShapeTypeId() 
 {
     return 3;
 }

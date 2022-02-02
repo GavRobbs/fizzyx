@@ -7,7 +7,7 @@ namespace fizzyx::collision
 {
     struct Circle : public ICollisionShape
     {
-        uint8_t getShapeTypeId() const override;
+        std::uint8_t getShapeTypeId() override;
 
         float radius{1.0f};
     };

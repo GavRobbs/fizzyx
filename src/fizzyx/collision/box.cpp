@@ -2,12 +2,12 @@
 
 using namespace fizzyx::collision;
 
-std::uint8_t AABB::getShapeTypeId() const
+std::uint8_t AABB::getShapeTypeId()
 {
     return 1;
 }
 
-std::uint8_t OBB::getShapeTypeId() const
+std::uint8_t OBB::getShapeTypeId()
 {
     return 2;
 }

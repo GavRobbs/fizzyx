@@ -2,10 +2,14 @@
 #define FIZZYX_ENTITY_H
 
 #include <math/vector2.h>
-#include <collision/collisionshape.h>
 
 namespace fizzyx
 {
+    namespace collision
+    {
+        struct ICollisionShape;
+    }
+
     namespace core
     {
         struct PhysicsMaterial
@@ -19,7 +23,7 @@ namespace fizzyx
         {
             public:
             virtual void update(float dt) = 0;
-            virtual fizzyx::collision::ICollisionShape * getBodyShape() = 0;
+            virtual fizzyx::collision::ICollisionShape* getBodyShape() = 0;
 
             IPhysicsEntity(const IPhysicsEntity&) = delete;
             IPhysicsEntity& operator =(const IPhysicsEntity&) = delete;

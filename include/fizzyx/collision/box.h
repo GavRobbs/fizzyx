@@ -7,7 +7,7 @@ namespace fizzyx::collision
 {
     struct AABB : public ICollisionShape
     {
-        uint8_t getShapeTypeId() const override;
+        std::uint8_t getShapeTypeId() override;
 
         float width{1.0f};
         float height{1.0f};
@@ -15,7 +15,7 @@ namespace fizzyx::collision
 
     struct OBB : public ICollisionShape
     {
-        uint8_t getShapeTypeId() const override;
+        std::uint8_t getShapeTypeId() override;
 
         float width{1.0f};
         float height{1.0f};

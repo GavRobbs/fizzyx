@@ -8,11 +8,10 @@
 #include <functional>
 #include <collision/collisionshape.h>
 
+
+
 namespace fizzyx::collision
 {
-
-    /*Quite possibly the worst bit of C++ I've written to date*/
-    typedef std::function<ICollisionData*(ICollisionShape*, const math::Vector2&, const float&, ICollisionShape*, const math::Vector2&, const float&)> CollisionDetectorFunction;
     
     struct ICollisionData
     {
@@ -24,6 +23,11 @@ namespace fizzyx::collision
         virtual void invert();
         virtual float getClosingVelocity();
     };
+
+     /*Quite possibly the worst bit of C++ I've written to date*/
+    typedef std::function<ICollisionData*(ICollisionShape*, const math::Vector2&, const float&, ICollisionShape*, const math::Vector2&, const float&)> CollisionDetectorFunction;
+
+    
 
     class ICollisionDetector
     {
