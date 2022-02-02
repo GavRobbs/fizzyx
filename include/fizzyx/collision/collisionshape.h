@@ -8,7 +8,7 @@ namespace fizzyx::collision
     
     struct ICollisionShape
     {
-        virtual uint8_t getShapeTypeId() const = 0;
+        virtual uint8_t getShapeTypeId() = 0;
     };
 
 }

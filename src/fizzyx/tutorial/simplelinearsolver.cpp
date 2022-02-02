@@ -34,11 +34,11 @@ void SimpleLinearSolver::resolveImpulse(fizzyx::collision::ICollisionData * coll
         return;
     }
 
-    float impulse = deltaVelocity / totalInverseMass;
+    float impulse = deltaVelocity / totalInverseMass; //m * s^-1 * kg
     math::Vector2 impulsePerUnitInverseMass = impulse * collision->collisionNormal;
 
-    collision->a->applyImpulse(impulsePerUnitInverseMass * collision->a->getInverseMass());
-    collision->b->applyImpulse(impulsePerUnitInverseMass * collision->b->getInverseMass() * -1.0f);
+    collision->a->setVelocity(collision->a->getVelocity() + (impulsePerUnitInverseMass * collision->a->getInverseMass()));
+    collision->b->setVelocity(collision->b->getVelocity() + (impulsePerUnitInverseMass * collision->b->getInverseMass() * -1.0f));
 }
         
 void SimpleLinearSolver::resolveInterpenetration(fizzyx::collision::ICollisionData * collision, const float & dt)

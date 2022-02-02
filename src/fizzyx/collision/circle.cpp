@@ -2,7 +2,7 @@
 
 using namespace fizzyx::collision;
 
-uint8_t Circle::getShapeTypeId() const
+uint8_t Circle::getShapeTypeId()
 {
     return 0;
 }

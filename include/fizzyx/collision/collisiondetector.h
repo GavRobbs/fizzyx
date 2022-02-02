@@ -6,8 +6,7 @@
 #include <cstdint>
 #include <vector>
 #include <functional>
-
-struct ICollisionShape;
+#include <collision/collisionshape.h>
 
 namespace fizzyx::collision
 {

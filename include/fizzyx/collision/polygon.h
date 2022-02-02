@@ -10,7 +10,7 @@ namespace fizzyx::collision
     {
         std::vector<math::Vector2> points;
 
-        uint8_t getShapeTypeId() const override;
+        uint8_t getShapeTypeId() override;
     };
 }
 
