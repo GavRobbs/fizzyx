@@ -65,3 +65,13 @@ void SimpleLinearSolver::resolveInterpenetration(fizzyx::collision::ICollisionDa
     pos_b += movementPerInverseMass * collision->b->getInverseMass() * -1.0f;
     collision->b->setPosition(pos_b);
 }
+
+void SimpleLinearSolver::enableRestingContactResolution()
+{
+    handleRestingContacts = true;
+}
+
+void SimpleLinearSolver::disableRestingContactResolution()
+{
+    handleRestingContacts = false;
+}
