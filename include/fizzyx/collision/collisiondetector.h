@@ -22,6 +22,7 @@ namespace fizzyx::collision
 
         virtual void invert();
         virtual float getClosingVelocity();
+        virtual std::vector<math::Vector2> getContactPoints();
     };
 
      /*Quite possibly the worst bit of C++ I've written to date*/

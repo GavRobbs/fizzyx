@@ -16,10 +16,17 @@ float ICollisionData::getClosingVelocity()
     return math::Vector2::dotProduct(a->getVelocity() - b->getVelocity(), collisionNormal);
 }
 
+std::vector<math::Vector2> ICollisionData::getContactPoints()
+{
+    std::vector<math::Vector2> blank;
+    return blank;
+}
+
 void ICollisionDetector::addDetectorEntry(uint8_t shape1, uint8_t shape2, CollisionDetectorFunction func)
 {
     entries.push_back(CollisionDetectorEntry{shape1, shape2, func});
 }
+
 
 /* Returns 0 if there is no valid collision detector pair. Returns 1 if there is a pair registered that matches exactly and returns -1 if the detector pair is present but reversed (so the collision data would have to be inverted). */
 int ICollisionDetector::CollisionDetectorEntry::isCompatible(std::uint8_t s1, std::uint8_t s2)
