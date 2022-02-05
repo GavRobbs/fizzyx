@@ -54,6 +54,8 @@ namespace fizzyx
             float getInverseMass();
             void setMass(const float &mass);
 
+            virtual float getRotation();
+            virtual void setRotation(const float & rot);
 
             float getGravity();
             void setGravity(const float &gravity);
