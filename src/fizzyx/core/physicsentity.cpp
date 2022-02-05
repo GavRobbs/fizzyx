@@ -216,6 +216,16 @@ void IPhysicsEntity::clearTorque()
 
 }
 
+float IPhysicsEntity::getRotation()
+{
+    return 0.0f;
+}
+
+void IPhysicsEntity::setRotation(const float & rot)
+{
+    return;
+}
+
 void IPhysicsEntity::setMaterial(const PhysicsMaterial & mat)
 {
     material = mat;
