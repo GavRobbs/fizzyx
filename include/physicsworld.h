@@ -16,6 +16,7 @@ namespace fizzyx
         std::vector<std::unique_ptr<core::IPhysicsEntity>> entities;
         core::IPhysicsSolver* solver;
         collision::ICollisionDetector* collisionDetector;
+        acceleration::AccelerationStructure* entityStorage;
 
         struct ForceGeneratorPair
         {

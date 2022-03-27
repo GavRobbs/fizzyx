@@ -22,22 +22,21 @@ void PhysicsWorld::resolveCollisionPairs(const float & dt)
     uint8_t numIterations = 3;
     std::vector<std::unique_ptr<collision::ICollisionData>> collisions;
 
-    /* This loop generates all the pairs in the world that are colliding */
-    for(auto it = entities.begin(); it != std::prev(entities.end()); ++it)
+    auto potentialContactPairs = entityStorage->getPotentialContactPairs();
+
+    /* This iterates through all the potential contact pairs to check for collision (this is narrow phase collision detection) */
+    for(auto it = potentialContactPairs.begin(); it != potentialContactPairs.end(); ++it)
     {
-        for(auto it2 = std::next(it); it2 != entities.end(); ++it2)
+        if(it->first->isForDeletion() || it->second->isForDeletion())
         {
-            if(it->get()->isForDeletion() || it2->get()->isForDeletion())
-            {
-                continue;
-            }
+            continue;
+        }
 
-            collision::ICollisionData * result = collisionDetector->detectCollision((*it).get(), (*it2).get());
+        collision::ICollisionData * result = collisionDetector->detectCollision(it->first, it->second);
 
-            if(result != nullptr)
-            {
-                collisions.push_back(std::move(std::unique_ptr<collision::ICollisionData>(result)));
-            }
+        if(result != nullptr)
+        {
+            collisions.push_back(std::move(std::unique_ptr<collision::ICollisionData>(result)));
         }
     }
 
@@ -91,15 +90,13 @@ void PhysicsWorld::processForceGenerators(const float & dt)
 
 void PhysicsWorld::updateAllEntities(const float & dt)
 {
-    for(auto it = entities.begin(); it != entities.end(); ++it)
-    {
-        it->get()->update(dt);
-    }
+    entityStorage->update(dt);
 }
 
 void PhysicsWorld::deleteFlaggedEntities()
 {
-    auto it = entities.begin();
+    entityStorage->cleanup();
+    /*auto it = entities.begin();
     while(it != entities.end())
     {
         if(it->get()->isForDeletion())
@@ -109,7 +106,7 @@ void PhysicsWorld::deleteFlaggedEntities()
         } else{
             ++it;
         }
-    }
+    }*/
 }
 
 void PhysicsWorld::update(float dt)
@@ -118,7 +115,7 @@ void PhysicsWorld::update(float dt)
         This part of the main loop is where the bulk of the processing takes place. We update the positions of each entity, remove the entities for deletion, apply forces from the force generator, check for collisions and update the body's velocity/position so it can be applied on the next frame
     */
 
-    if(entities.empty())
+    if(entityStorage->isEmpty())
     {
         return;
     }
@@ -170,25 +167,26 @@ void PhysicsWorld::emptyWorld()
 
 void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
 {
-    entities.push_back(std::unique_ptr<core::IPhysicsEntity>(entity));
+    entityStorage->addEntity(entity);
 }
 
  void PhysicsWorld::removeEntity(unsigned int id)
  {
-    for(auto it = entities.begin(); it != entities.end(); ++it)
+    entityStorage->removeEntity(id);
+    /*for(auto it = entities.begin(); it != entities.end(); ++it)
     {
         if(it->get()->getID() == id)
         {
             entities.erase(it);
             return;
         }
-    }
+    }*/
 
  }
 
 void PhysicsWorld::removeEntity(core::IPhysicsEntity *entity)
 {
-    removeEntity(entity->getID());
+    entityStorage->removeEntity(entity->getID());
 }
 
 PhysicsWorld::PhysicsWorld(PhysicsWorld &&other)
