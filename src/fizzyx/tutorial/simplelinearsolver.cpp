@@ -34,7 +34,7 @@ void SimpleLinearSolver::resolveImpulse(fizzyx::collision::ICollisionData * coll
         return;
     }
 
-    float impulse = deltaVelocity / totalInverseMass; //m * s^-1 * kg
+    float impulse = deltaVelocity / totalInverseMass;
     math::Vector2 impulsePerUnitInverseMass = impulse * collision->collisionNormal;
 
     collision->a->setVelocity(collision->a->getVelocity() + (impulsePerUnitInverseMass * collision->a->getInverseMass()));

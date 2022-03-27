@@ -10,6 +10,9 @@ namespace fizzyx::collision
         std::uint8_t getShapeTypeId() override;
 
         float radius{1.0f};
+
+        Circle();
+        Circle(const float &radius);
     };
 
 }

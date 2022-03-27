@@ -11,6 +11,11 @@ namespace fizzyx::collision
 
         float width{1.0f};
         float height{1.0f};
+
+        AABB();
+        AABB(const float &w, const float& h);
+        AABB(const math::Vector2 &top_left, const math::Vector2 &bottomRight);
+
     };
 
     struct OBB : public ICollisionShape

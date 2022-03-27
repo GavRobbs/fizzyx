@@ -2,6 +2,8 @@
 #define POLY_COLLISION_SHAPE_H
 
 #include <collision/collisionshape.h>
+#include <collision/box.h>
+#include <collision/circle.h>
 #include <vector>
 
 namespace fizzyx::collision
@@ -9,8 +11,16 @@ namespace fizzyx::collision
     struct Polygon : public ICollisionShape
     {
         std::vector<math::Vector2> points;
+        math::Vector2 centroid;
+
+        math::Vector2 getSupportPoint(const math::Vector2 & normal);
+        std::vector<math::Vector2> getTransformedPoints(const math::Vector2 &origin, const float &rotation);
+        void addPoint(const math::Vector2 &point);
 
         uint8_t getShapeTypeId() override;
+
+        AABB getBoundingBox(const math::Vector2 &position, const float &rotation);
+        Circle getBoundingCircle(const math::Vector2 &position, const float &rotation);
     };
 }
 
