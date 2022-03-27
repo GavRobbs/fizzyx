@@ -147,6 +147,17 @@ void PhysicsWorld::setSolver(core::IPhysicsSolver * solver)
     this->solver = solver;
 }
 
+void PhysicsWorld::setAccelerationStructure(acceleration::IAccelerationStructure *accelerator)
+{
+    if(this->entityStorage != nullptr)
+    {
+        delete this->entityStorage;
+    }
+    
+    this->entityStorage = accelerator;
+}
+
+
 PhysicsWorld::~PhysicsWorld()
 {
     if(solver != nullptr)
@@ -162,7 +173,7 @@ PhysicsWorld::~PhysicsWorld()
 
 void PhysicsWorld::emptyWorld()
 {
-    entities.clear();
+    entityStorage->emptyWorld();
 }
 
 void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
@@ -191,9 +202,9 @@ void PhysicsWorld::removeEntity(core::IPhysicsEntity *entity)
 
 PhysicsWorld::PhysicsWorld(PhysicsWorld &&other)
 {
-    for(int i = 0; i < other.entities.size(); ++i)
+    if(other.entityStorage != nullptr)
     {
-        entities.push_back(std::move(other.entities[i]));
+        entityStorage = other.entityStorage->clone();
     }
 
     if(other.solver != nullptr)
@@ -214,9 +225,9 @@ PhysicsWorld& PhysicsWorld::operator=(PhysicsWorld &&other)
 
     } else
     {
-        for(int i = 0; i < other.entities.size(); ++i)
+        if(other.entityStorage != nullptr)
         {
-            entities.push_back(std::move(other.entities[i]));
+            entityStorage = other.entityStorage->clone();
         }
 
         if(other.solver != nullptr)

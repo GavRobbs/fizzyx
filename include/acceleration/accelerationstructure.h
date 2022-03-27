@@ -5,7 +5,7 @@ namespace fizzyx
 {
     namespace acceleration
     {
-        class AccelerationStructure
+        class IAccelerationStructure
         {
             public:
             virtual void addEntity(core::IPhysicsEntity *entity);
@@ -15,6 +15,8 @@ namespace fizzyx
             virtual core::IPhysicsEntity * getEntity(unsigned int id);
             virtual void update(const float &dt);
             virtual bool isEmpty();
+
+            virtual IAccelerationStructure * clone() = 0;
 
             //Deletes flagged entities
             virtual void cleanup();
