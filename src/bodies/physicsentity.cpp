@@ -1,4 +1,4 @@
-#include <core/physicsentity.h>
+#include <bodies/physicsentity.h>
 #include <math/vector2.h>
 
 using namespace fizzyx::core;

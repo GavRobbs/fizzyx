@@ -4,7 +4,7 @@
 #include <ecs.h>
 #include <graphicsmanager.h>
 #include <physicsworld.h>
-#include <tutorial/pointmass.h>
+#include <bodies/pointmass.h>
 
 /* A class to represent our spring as a line*/
 class SpringRendererComponent : public IRenderable, public Component

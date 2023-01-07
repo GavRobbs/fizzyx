@@ -2,10 +2,11 @@
 #define FIZZYX_WORLD_H
 
 #include <vector>
-#include <core/physicsentity.h>
-#include <core/physicssolver.h>
-#include <core/forcegenerator.h>
-#include <collision/collisiondetector.h>
+#include <bodies/physicsentity.h>
+#include <solvers/physicssolver.h>
+#include <forcegenerators/forcegenerator.h>
+#include <collision_utils/collisiondetector.h>
+#include <acceleration/accelerationstructure.h>
 #include <memory>
 
 namespace fizzyx
@@ -13,7 +14,6 @@ namespace fizzyx
     class PhysicsWorld
     {
         protected:
-        std::vector<std::unique_ptr<core::IPhysicsEntity>> entities;
         core::IPhysicsSolver* solver;
         collision::ICollisionDetector* collisionDetector;
         acceleration::IAccelerationStructure* entityStorage;
@@ -46,7 +46,6 @@ namespace fizzyx
         void setSolver(core::IPhysicsSolver *solver);
         void setCollisionDetector(collision::ICollisionDetector *detector);
         void setAccelerationStructure(acceleration::IAccelerationStructure *accelerator);
-
         
         void addEntity(core::IPhysicsEntity *entity);
         void removeEntity(unsigned int id);

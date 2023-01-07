@@ -1,4 +1,4 @@
-#include <tutorial/pointmass.h>
+#include <bodies/pointmass.h>
 #include <cmath>
 #include <iostream>
 

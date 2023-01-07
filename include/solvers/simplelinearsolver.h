@@ -1,8 +1,8 @@
 #ifndef LINEAR_SOLVER_H
 #define LINEAR_SOLVER_H
 
-#include <core/physicssolver.h>
-#include <collision/collisiondetector.h>
+#include <solvers/physicssolver.h>
+#include <collision_utils/collisiondetector.h>
 
 namespace fizzyx::tutorial
 {

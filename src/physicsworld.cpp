@@ -1,13 +1,13 @@
 #include <physicsworld.h>
-#include <core/physicsentity.h>
-#include <core/forcegenerator.h>
+#include <bodies/physicsentity.h>
+#include <forcegenerators/forcegenerator.h>
 #include <iostream>
 #include <memory>
 #include <limits>
 
 using namespace fizzyx;
 
-PhysicsWorld::PhysicsWorld():solver{nullptr}, collisionDetector{nullptr}
+PhysicsWorld::PhysicsWorld():solver{nullptr}, collisionDetector{nullptr}, entityStorage{nullptr}
 {
 
 }
@@ -41,6 +41,7 @@ void PhysicsWorld::resolveCollisionPairs(const float & dt)
     }
 
     //We then resolve the contact pair with the highest closing velocity first
+    //TODO: Will need to modify this when angular velocity comes into play
     for(size_t j = 0; j < numIterations; ++j)
     {
         for(size_t i = 0; i < collisions.size(); ++i)
@@ -96,17 +97,6 @@ void PhysicsWorld::updateAllEntities(const float & dt)
 void PhysicsWorld::deleteFlaggedEntities()
 {
     entityStorage->cleanup();
-    /*auto it = entities.begin();
-    while(it != entities.end())
-    {
-        if(it->get()->isForDeletion())
-        {
-            it = entities.erase(it);
-            removeAllForceGeneratorsFromEntity(it->get());
-        } else{
-            ++it;
-        }
-    }*/
 }
 
 void PhysicsWorld::update(float dt)
@@ -169,6 +159,11 @@ PhysicsWorld::~PhysicsWorld()
     {
         delete collisionDetector;
     }
+
+    if(entityStorage != nullptr)
+    {
+        delete entityStorage;
+    }
 }
 
 void PhysicsWorld::emptyWorld()
@@ -184,15 +179,6 @@ void PhysicsWorld::addEntity(core::IPhysicsEntity *entity)
  void PhysicsWorld::removeEntity(unsigned int id)
  {
     entityStorage->removeEntity(id);
-    /*for(auto it = entities.begin(); it != entities.end(); ++it)
-    {
-        if(it->get()->getID() == id)
-        {
-            entities.erase(it);
-            return;
-        }
-    }*/
-
  }
 
 void PhysicsWorld::removeEntity(core::IPhysicsEntity *entity)

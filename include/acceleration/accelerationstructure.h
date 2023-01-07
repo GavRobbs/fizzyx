@@ -1,5 +1,9 @@
+#ifndef ACCELERATION_STRUCTURE_H
+#define ACCELERATION_STRUCTURE_H
+
 #include <utility>
 #include <vector>
+#include <bodies/physicsentity.h>
 
 namespace fizzyx
 {
@@ -20,9 +24,11 @@ namespace fizzyx
 
             //Deletes flagged entities
             virtual void cleanup();
-            std::vector<std::pair<core::IPhysicsEntity*, core::IPhysicsEntity*>> getPotentialContactPairs();
+            virtual std::vector<std::pair<core::IPhysicsEntity*, core::IPhysicsEntity*>> getPotentialContactPairs();
         };
 
     }
     
 }
+
+#endif

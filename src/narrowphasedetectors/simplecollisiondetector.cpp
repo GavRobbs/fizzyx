@@ -1,4 +1,4 @@
-#include <tutorial/simplecollisiondetector.h>
+#include <narrowphasedetectors/simplecollisiondetector.h>
 
 using namespace fizzyx::tutorial;
 

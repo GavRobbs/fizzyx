@@ -1,4 +1,4 @@
-#include <tutorial/nullsolver.h>
+#include <solvers/nullsolver.h>
 
 using namespace fizzyx::collision;
 using namespace fizzyx::tutorial;

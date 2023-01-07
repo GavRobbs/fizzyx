@@ -1,7 +1,7 @@
 #ifndef COLLISION_SHAPE_H
 #define COLLISION_SHAPE_H
 
-#include <collision/collisiondetector.h>
+#include <collision_utils/collisiondetector.h>
 #include <cstdint>
 
 namespace fizzyx::collision

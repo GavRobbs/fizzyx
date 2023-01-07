@@ -11,9 +11,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 enable_testing()
-
 add_subdirectory(extern/SDL2)
 add_subdirectory(extern/googletest)
-add_subdirectory(src/fizzyx)
+
+add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(apps)

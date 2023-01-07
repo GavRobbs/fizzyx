@@ -6,9 +6,9 @@
 #include <SDL.h>
 #include <cmath>
 #include <algorithm>
-#include <tutorial/pointmass.h>
-#include <tutorial/nullsolver.h>
-#include <tutorial/nulldetector.h>
+#include <bodies/pointmass.h>
+#include <solvers/nullsolver.h>
+#include <narrowphasedetectors/nulldetector.h>
 #include <math/mathutils.h>
 #include <anchoredspringfg.h>
 

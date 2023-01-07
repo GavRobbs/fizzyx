@@ -3,9 +3,10 @@
 #include <SDL.h>
 #include <cmath>
 #include <algorithm>
-#include <tutorial/pointmass.h>
-#include <tutorial/nullsolver.h>
-#include <tutorial/nulldetector.h>
+#include <bodies/pointmass.h>
+#include <solvers/nullsolver.h>
+#include <acceleration/unoptimizedstore.h>
+#include <narrowphasedetectors/nulldetector.h>
 #include <math/mathutils.h>
 #include <particlespawner.h>
 #include <sstream>
@@ -29,6 +30,7 @@ class FireworksApp : public DemoApp
         fizzyx::PhysicsWorld &world = sceneManager.getPhysicsWorld();
         world.setSolver(new fizzyx::tutorial::NullSolver{});
         world.setCollisionDetector(new fizzyx::tutorial::NullCollisionDetector{});
+        world.setAccelerationStructure(new fizzyx::tutorial::UnoptimizedStore{});
     }
 
     void tearDown() override

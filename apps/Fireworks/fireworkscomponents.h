@@ -3,7 +3,7 @@
 
 #include <ecs.h>
 #include <graphicsmanager.h>
-#include <tutorial/pointmass.h>
+#include <bodies/pointmass.h>
 
 class ParticleSpawner;
 

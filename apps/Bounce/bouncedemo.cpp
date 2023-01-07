@@ -1,8 +1,9 @@
 #include <bouncedemo.h>
 #include <basiccomponents.h>
-#include <tutorial/simplelinearsolver.h>
-#include <tutorial/pointmasscollisiondetector.h>
-#include <tutorial/pointmass.h>
+#include <solvers/simplelinearsolver.h>
+#include <narrowphasedetectors/pointmasscollisiondetector.h>
+#include <acceleration/unoptimizedstore.h>
+#include <bodies/pointmass.h>
 
 BounceDemo::BounceDemo():DemoApp("Bounce Demo", 1024, 768)
 {
@@ -16,10 +17,9 @@ BounceDemo::~BounceDemo()
 
 void BounceDemo::setup()
 {
-    fizzyx::PhysicsWorld & world = sceneManager.getPhysicsWorld();
-
-    fizzyx::tutorial::SimpleLinearSolver * sls = new fizzyx::tutorial::SimpleLinearSolver{};
-    world.setSolver(sls);
+    auto & world = sceneManager.getPhysicsWorld();
+    world.setSolver(new fizzyx::tutorial::SimpleLinearSolver{});
+    world.setAccelerationStructure(new fizzyx::tutorial::UnoptimizedStore{});
 
     fizzyx::tutorial::PointMassCollisionDetector * pmcd = new fizzyx::tutorial::PointMassCollisionDetector{};
     pmcd->setCollisionRadius(30.0f);

@@ -1,4 +1,4 @@
-#include <collision/polygon.h>
+#include <collision_utils/polygon.h>
 #include <algorithm>
 
 using namespace fizzyx::collision;
@@ -84,8 +84,6 @@ Circle Polygon::getBoundingCircle(const math::Vector2 &position, const float &ro
 
     float minX, minY = FLT_MAX;
     float maxX, maxY = -FLT_MAX;
-
-    auto transformed = getTransformedPoints(position, rotation);
 
     for(auto it = transformed.begin(); it != transformed.end(); ++it)
     {

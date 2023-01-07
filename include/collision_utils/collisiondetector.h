@@ -1,12 +1,12 @@
 #ifndef COLLISION_DETECTOR_H
 #define COLLISION_DETECTOR_H
 
-#include <core/physicsentity.h>
+#include <bodies/physicsentity.h>
 #include <math/vector2.h>
 #include <cstdint>
 #include <vector>
 #include <functional>
-#include <collision/collisionshape.h>
+#include <collision_utils/collisionshape.h>
 
 
 

@@ -1,4 +1,4 @@
-#include <tutorial/nulldetector.h>
+#include <narrowphasedetectors/nulldetector.h>
 
 using namespace fizzyx::collision;
 using namespace fizzyx::tutorial;

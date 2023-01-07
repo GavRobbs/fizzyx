@@ -1,9 +1,9 @@
 #ifndef POLY_COLLISION_SHAPE_H
 #define POLY_COLLISION_SHAPE_H
 
-#include <collision/collisionshape.h>
-#include <collision/box.h>
-#include <collision/circle.h>
+#include <collision_utils/collisionshape.h>
+#include <collision_utils/box.h>
+#include <collision_utils/circle.h>
 #include <vector>
 
 namespace fizzyx::collision

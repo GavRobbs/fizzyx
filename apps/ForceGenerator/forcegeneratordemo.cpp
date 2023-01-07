@@ -1,6 +1,9 @@
 #include <forcegeneratordemo.h>
 #include <fgcomponents.h>
 #include <basiccomponents.h>
+#include <acceleration/unoptimizedstore.h>
+#include <solvers/simplelinearsolver.h>
+#include<narrowphasedetectors/pointmasscollisiondetector.h>
 
 ForceGeneratorDemoApp::ForceGeneratorDemoApp():DemoApp{"Force Generator Demo", 1024, 768}
 {
@@ -61,9 +64,14 @@ void ForceGeneratorDemoApp::reset()
 void ForceGeneratorDemoApp::recreateDemo()
 {
     /* This recreates the demo state with the current values of the spring constant and rest length. It creates a point mass physics entity, then creates a scene entity to hold it, and then a rigid body to link the two so physics changes are automatically translated to scene changes. It then creates an entity to render the spring, and adds that to the scene. It then links the spring force generator to the point mass created earlier and adds it to the physics world*/
+    auto & world = sceneManager.getPhysicsWorld();
+    world.setSolver(new fizzyx::tutorial::SimpleLinearSolver{});
+    world.setCollisionDetector(new fizzyx::tutorial::PointMassCollisionDetector{});
+    world.setAccelerationStructure(new fizzyx::tutorial::UnoptimizedStore{});
+    
     pointMass = new fizzyx::tutorial::PointMassEntity{};
     pointMass->setMass(1.0f);
-    sceneManager.getPhysicsWorld().addEntity(pointMass);
+    world.addEntity(pointMass);
 
     box = new Entity{};
     Transform t = box->getTransform();

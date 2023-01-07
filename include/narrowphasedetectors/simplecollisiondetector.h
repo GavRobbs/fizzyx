@@ -1,7 +1,7 @@
 #ifndef SIMPLE_COLLISION_DETECTOR_H
 #define SIMPLE_COLLISION_DETECTOR_H
 
-#include <collision/collisiondetector.h>
+#include <collision_utils/collisiondetector.h>
 
 namespace fizzyx::tutorial
 {

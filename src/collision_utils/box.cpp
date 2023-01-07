@@ -1,4 +1,4 @@
-#include <collision/box.h>
+#include <collision_utils/box.h>
 
 using namespace fizzyx::collision;
 
