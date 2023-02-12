@@ -30,11 +30,7 @@ void UnoptimizedStore::removeEntity(IPhysicsEntity *entity)
 
 void UnoptimizedStore::emptyWorld()
 {
-    auto it = entities.begin();
-    while(it != entities.end())
-    {
-        it = entities.erase(it);
-    }
+    entities.clear();
 
 }
 

@@ -174,16 +174,18 @@ Entity::~Entity()
 
 void Entity::update(float dt)
 {
+    auto removeList =  std::remove_if(components.begin(), components.end(),
+            [](const std::unique_ptr<Component> &component){
+                return (*component).forDeletion;
+            }
+    );
+    components.erase(removeList, components.end());
+
     auto it = components.begin();
     while(it != components.end())
     {
-        if(it->get()->forDeletion)
-        {
-            it = components.erase(it);
-        } else{
-            it->get()->update(dt);
-            ++it;
-        }
+        it->get()->update(dt);
+        ++it;
     }
 }
 
