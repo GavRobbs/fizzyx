@@ -9,7 +9,7 @@ PointRendererComponent::PointRendererComponent(GraphicsManager &gm, const Graphi
 void PointRendererComponent::render(float dt)
 {
     math::Vector2 position = owner->getTransform().position;
-    graphicsManager.drawPoint(position, color, 1.0f);
+    graphicsManager.drawPoint(position, color, 1.5f);
 }
 
 PointSpawnerKillerComponent::PointSpawnerKillerComponent(const float &_lifespan, ParticleSpawner &_spawner):Component(), lifespan(_lifespan), spawner(_spawner)
