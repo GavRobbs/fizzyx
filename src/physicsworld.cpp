@@ -1,6 +1,6 @@
-#include <physicsworld.h>
-#include <bodies/physicsentity.h>
-#include <forcegenerators/forcegenerator.h>
+#include "fizzyx/physicsworld.h"
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/forcegenerators/forcegenerator.h"
 #include <iostream>
 #include <memory>
 #include <limits>

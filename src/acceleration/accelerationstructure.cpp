@@ -1,4 +1,4 @@
-#include <acceleration/accelerationstructure.h>
+#include "fizzyx/acceleration/accelerationstructure.h"
 
 using namespace fizzyx::acceleration;
 using namespace fizzyx::core;

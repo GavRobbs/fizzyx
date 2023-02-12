@@ -1,4 +1,4 @@
-#include <basiccomponents.h>
+#include "basiccomponents.h"
 
 BoxRendererComponent::BoxRendererComponent(const GraphicsManager& _graphics, const GraphicsManager::Color& color, const math::Vector2& dimensions, bool filled):Component(), graphicsManager(_graphics), color(color), dimensions(dimensions), filled(filled)
 {

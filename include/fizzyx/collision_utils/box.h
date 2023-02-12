@@ -1,7 +1,7 @@
 #ifndef BOX_COLLISION_SHAPE_H
 #define BOX_COLLISION_SHAPE_H
 
-#include <collision_utils/collisionshape.h>
+#include "fizzyx/collision_utils/collisionshape.h"
 
 namespace fizzyx::collision
 {

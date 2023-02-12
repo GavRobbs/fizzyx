@@ -1,3 +1,3 @@
-#include <solvers/physicssolver.h>
+#include "fizzyx/solvers/physicssolver.h"
 
 using namespace fizzyx::core;

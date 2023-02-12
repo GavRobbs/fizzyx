@@ -1,5 +1,5 @@
-#include <math/vector2.h>
-#include <math/mathutils.h>
+#include "fizzyx/math/vector2.h"
+#include "fizzyx/math/mathutils.h"
 #include <sstream>
 #include <stdexcept>
 

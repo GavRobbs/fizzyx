@@ -1,8 +1,8 @@
 #ifndef DEMOAPP_H
 #define DEMOAPP_H
 
-#include <graphicsmanager.h>
-#include <ecs.h>
+#include "graphicsmanager.h"
+#include "ecs.h"
 
 #include <string>
 #include <imgui.h>

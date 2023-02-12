@@ -1,9 +1,9 @@
 #ifndef FIZZYX_SOLVER_H
 #define FIZZYX_SOLVER_H
 
-#include <bodies/physicsentity.h>
-#include <math/vector2.h>
-#include <collision_utils/collisiondetector.h>
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/math/vector2.h"
+#include "fizzyx/collision_utils/collisiondetector.h"
 
 namespace fizzyx
 {

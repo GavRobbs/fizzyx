@@ -3,8 +3,8 @@
 #include <imgui.h>
 #include <backends/imgui_impl_sdl.h>
 #include <backends/imgui_impl_sdlrenderer.h>
-#include <math/mat22.h>
-#include <math/mathutils.h>
+#include "fizzyx/math/mat22.h"
+#include "fizzyx/math/mathutils.h"
 #include <algorithm> 
 #include <vector>
 

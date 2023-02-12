@@ -1,5 +1,5 @@
-#include "math/mat22.h"
-#include "math/mathutils.h"
+#include "fizzyx/math/mat22.h"
+#include "fizzyx/math/mathutils.h"
 #include <cmath>
 #include <sstream>
 #include <stdexcept>

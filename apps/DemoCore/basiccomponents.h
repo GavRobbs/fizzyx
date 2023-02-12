@@ -1,9 +1,9 @@
 #ifndef BASIC_COMPONENTS_H
 #define BASIC_COMPONENTS_H
 
-#include <ecs.h>
-#include <graphicsmanager.h>
-#include <bodies/physicsentity.h>
+#include "ecs.h"
+#include "graphicsmanager.h"
+#include "fizzyx/bodies/physicsentity.h"
 
 /* Draws a simple colored box, can be filled or an outline */
 class BoxRendererComponent : public IRenderable, public Component

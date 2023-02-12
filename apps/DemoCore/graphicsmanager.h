@@ -5,7 +5,7 @@
 
 #include <SDL.h>
 #include <string>
-#include <math/vector2.h>
+#include "fizzyx/math/vector2.h"
 
 class GraphicsManager
 {

@@ -1,6 +1,6 @@
-#include <particlespawner.h>
-#include <fireworkscomponents.h>
-#include <math/vector2.h>
+#include "particlespawner.h"
+#include "fireworkscomponents.h"
+#include "fizzyx/math/vector2.h"
 #include <iostream>
 
 void ParticleSpawner::spawnParticles(const math::Vector2 &position, int numParticles, const float &minLifetime, const float &maxLifeTime)

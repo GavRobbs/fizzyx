@@ -1,9 +1,9 @@
 #ifndef POINT_MASS_RB_H
 #define POINT_MASS_RB_H
 
-#include <bodies/physicsentity.h>
-#include <collision_utils/collisionshape.h>
-#include <math/vector2.h>
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/collision_utils/collisionshape.h"
+#include "fizzyx/math/vector2.h"
 
 namespace fizzyx::tutorial
 {

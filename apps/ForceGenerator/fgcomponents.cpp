@@ -1,6 +1,6 @@
-#include <fgcomponents.h>
-#include <anchoredspringfg.h>
-#include <basiccomponents.h>
+#include "fgcomponents.h"
+#include "anchoredspringfg.h"
+#include "basiccomponents.h"
 
 void SpringRendererComponent::render(float dt)
 {

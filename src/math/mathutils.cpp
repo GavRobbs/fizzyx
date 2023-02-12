@@ -1,3 +1,3 @@
-#include <math/mathutils.h>
+#include "fizzyx/math/mathutils.h"
 
 bool math::Random::isSeeded = false;

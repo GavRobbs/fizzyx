@@ -1,16 +1,16 @@
 #ifndef FORCE_GENERATOR_DEMO_H
 #define FORCE_GENERATOR_DEMO_H
 
-#include <demoapp.h>
-#include <ecs.h>
+#include "demoapp.h"
+#include "ecs.h"
 #include <SDL.h>
 #include <cmath>
 #include <algorithm>
-#include <bodies/pointmass.h>
-#include <solvers/nullsolver.h>
-#include <narrowphasedetectors/nulldetector.h>
-#include <math/mathutils.h>
-#include <anchoredspringfg.h>
+#include "fizzyx/bodies/pointmass.h"
+#include "fizzyx/solvers/nullsolver.h"
+#include "fizzyx/narrowphasedetectors/nulldetector.h"
+#include "fizzyx/math/mathutils.h"
+#include "anchoredspringfg.h"
 
 
 class ForceGeneratorDemoApp : public DemoApp

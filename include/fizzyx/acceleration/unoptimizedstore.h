@@ -1,7 +1,7 @@
 #ifndef ACCELERATION_UNOPTIMIZED_STORE
 #define ACCELERATION_UNOPTIMIZED_STORE
 
-#include<acceleration/accelerationstructure.h>
+#include "fizzyx/acceleration/accelerationstructure.h"
 #include<memory>
 
 namespace fizzyx::tutorial

@@ -1,4 +1,4 @@
-#include <collision_utils/collisiondetector.h>
+#include "fizzyx/collision_utils/collisiondetector.h"
 
 using namespace fizzyx::collision;
 using namespace fizzyx::core;

@@ -1,5 +1,5 @@
-#include <fireworkscomponents.h>
-#include <particlespawner.h>
+#include "fireworkscomponents.h"
+#include "particlespawner.h"
 #include <iostream>
 
 PointRendererComponent::PointRendererComponent(GraphicsManager &gm, const GraphicsManager::Color &_color):Component(), graphicsManager(gm), color(_color)

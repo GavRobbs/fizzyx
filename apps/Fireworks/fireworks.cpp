@@ -1,14 +1,14 @@
-#include <demoapp.h>
-#include <ecs.h>
+#include "demoapp.h"
+#include "ecs.h"
 #include <SDL.h>
 #include <cmath>
 #include <algorithm>
-#include <bodies/pointmass.h>
-#include <solvers/nullsolver.h>
-#include <acceleration/unoptimizedstore.h>
-#include <narrowphasedetectors/nulldetector.h>
-#include <math/mathutils.h>
-#include <particlespawner.h>
+#include "fizzyx/bodies/pointmass.h"
+#include "fizzyx/solvers/nullsolver.h"
+#include "fizzyx/acceleration/unoptimizedstore.h"
+#include "fizzyx/narrowphasedetectors/nulldetector.h"
+#include "fizzyx/math/mathutils.h"
+#include "particlespawner.h"
 #include <sstream>
 
 /* This application demonstrates the movement of particles under the influence of velocity and acceleration - controlled by the physics engine. */

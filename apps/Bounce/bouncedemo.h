@@ -1,7 +1,7 @@
 #ifndef BOUNCE_DEMO_H
 #define BOUNCE_DEMO_H
 
-#include <demoapp.h>
+#include "demoapp.h"
 
 class BounceDemo : public DemoApp
 {

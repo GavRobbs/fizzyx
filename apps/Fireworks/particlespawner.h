@@ -1,9 +1,9 @@
 #ifndef PARTICLE_SPAWNER_H
 #define PARTICLE_SPAWNER_H
 
-#include <ecs.h>
-#include <graphicsmanager.h>
-#include <math/mathutils.h>
+#include "ecs.h"
+#include "graphicsmanager.h"
+#include "fizzyx/math/mathutils.h"
 
 class ParticleSpawner
 {

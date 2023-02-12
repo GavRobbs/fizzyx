@@ -1,4 +1,4 @@
-#include <forcegenerators/forcegenerator.h>
+#include "fizzyx/forcegenerators/forcegenerator.h"
 
 using namespace fizzyx::core;
 

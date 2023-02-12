@@ -1,6 +1,6 @@
 #include <ecs.h>
 #include <memory>
-#include <math/mat33.h>
+#include "fizzyx/math/mat33.h"
 
 unsigned int Entity::idTracker = 0;
 unsigned int Component::idTracker = 0;

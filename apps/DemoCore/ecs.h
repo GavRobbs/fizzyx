@@ -3,10 +3,10 @@
 
 #include <vector>
 #include <memory>
-#include <physicsworld.h>
+#include "fizzyx/physicsworld.h"
 
-#include <math/vector2.h>
-#include <math/mat33.h>
+#include "fizzyx/math/vector2.h"
+#include "fizzyx/math/mat33.h"
 
 class Entity;
 class Component;

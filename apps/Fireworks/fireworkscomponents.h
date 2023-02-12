@@ -1,9 +1,9 @@
 #ifndef FIREWORKS_COMPONENTS_H
 #define FIREWORKS_COMPONENTS_H
 
-#include <ecs.h>
-#include <graphicsmanager.h>
-#include <bodies/pointmass.h>
+#include "ecs.h"
+#include "graphicsmanager.h"
+#include "fizzyx/bodies/pointmass.h"
 
 class ParticleSpawner;
 

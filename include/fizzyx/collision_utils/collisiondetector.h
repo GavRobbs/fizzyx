@@ -1,12 +1,12 @@
 #ifndef COLLISION_DETECTOR_H
 #define COLLISION_DETECTOR_H
 
-#include <bodies/physicsentity.h>
-#include <math/vector2.h>
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/math/vector2.h"
 #include <cstdint>
 #include <vector>
 #include <functional>
-#include <collision_utils/collisionshape.h>
+#include "fizzyx/collision_utils/collisionshape.h"
 
 
 
@@ -26,7 +26,7 @@ namespace fizzyx::collision
     };
 
      /*Quite possibly the worst bit of C++ I've written to date*/
-    typedef std::function<ICollisionData*(ICollisionShape*, const math::Vector2&, const float&, const float&, ICollisionShape*, const math::Vector2&, const float&)> CollisionDetectorFunction;  
+    typedef std::function<ICollisionData*(ICollisionShape*, const math::Vector2&, const float&, ICollisionShape*, const math::Vector2&, const float&)> CollisionDetectorFunction;  
 
     class ICollisionDetector
     {

@@ -1,9 +1,9 @@
-#include <forcegeneratordemo.h>
-#include <fgcomponents.h>
-#include <basiccomponents.h>
-#include <acceleration/unoptimizedstore.h>
-#include <solvers/simplelinearsolver.h>
-#include<narrowphasedetectors/pointmasscollisiondetector.h>
+#include "forcegeneratordemo.h"
+#include "fgcomponents.h"
+#include "basiccomponents.h"
+#include "fizzyx/acceleration/unoptimizedstore.h"
+#include "fizzyx/solvers/simplelinearsolver.h"
+#include "fizzyx/narrowphasedetectors/pointmasscollisiondetector.h"
 
 ForceGeneratorDemoApp::ForceGeneratorDemoApp():DemoApp{"Force Generator Demo", 1024, 768}
 {

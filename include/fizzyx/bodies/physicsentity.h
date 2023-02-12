@@ -1,7 +1,7 @@
 #ifndef FIZZYX_ENTITY_H
 #define FIZZYX_ENTITY_H
 
-#include <math/vector2.h>
+#include "fizzyx/math/vector2.h"
 
 namespace fizzyx
 {

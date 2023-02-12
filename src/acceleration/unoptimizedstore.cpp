@@ -1,5 +1,6 @@
-#include<acceleration/unoptimizedstore.h>
+#include "fizzyx/acceleration/unoptimizedstore.h"
 #include<iostream>
+#include<algorithm>
 
 using namespace fizzyx::tutorial;
 using namespace fizzyx::core;
@@ -80,16 +81,14 @@ IAccelerationStructure * UnoptimizedStore::clone()
 //Deletes flagged entities
 void UnoptimizedStore::cleanup()
 {
-    auto it = entities.begin();
-    while(it != entities.end())
-    {
-        if(it->get()->isForDeletion())
-        {
-            it = entities.erase(it);
-        }
-        
-        ++it;
-    }
+
+    auto removeList =  std::remove_if(entities.begin(), entities.end(),
+            [](const std::unique_ptr<core::IPhysicsEntity> &entity){
+                return (*entity).isForDeletion();
+            }
+    );
+
+    entities.erase(removeList, entities.end());
 }
 
 std::vector<std::pair<IPhysicsEntity*, IPhysicsEntity*>> UnoptimizedStore::getPotentialContactPairs()

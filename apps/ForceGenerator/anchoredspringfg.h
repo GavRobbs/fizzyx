@@ -1,9 +1,9 @@
 #ifndef ANCHORED_SPRING_FORCE_GENERATOR_DEMO_H
 #define ANCHORED_SPRING_FORCE_GENERATOR_DEMO_H
 
-#include <math/vector2.h>
-#include <bodies/physicsentity.h>
-#include <forcegenerators/forcegenerator.h>
+#include "fizzyx/math/vector2.h"
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/forcegenerators/forcegenerator.h"
 
 /* A force generator that simulates a spring with one end fixed at a specific position*/
 class AnchoredSpringForceGenerator : public fizzyx::core::ForceGenerator

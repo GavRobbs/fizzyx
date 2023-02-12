@@ -1,4 +1,4 @@
-#include <collision_utils/polygon.h>
+#include "fizzyx/collision_utils/polygon.h"
 #include <algorithm>
 
 using namespace fizzyx::collision;
@@ -39,7 +39,7 @@ std::vector<math::Vector2> Polygon::getTransformedPoints(const math::Vector2 &po
 
 void Polygon::addPoint(const math::Vector2 &point)
 {
-    float numPoints = points.size();
+    float numPoints = (float)points.size();
     math::Vector2 unavgCentroid = centroid * numPoints;
     points.push_back(point);
     centroid = (unavgCentroid + point) / (numPoints + 1.0f);
@@ -47,8 +47,8 @@ void Polygon::addPoint(const math::Vector2 &point)
 
 AABB Polygon::getBoundingBox(const math::Vector2 &position, const float &rotation)
 {
-    float minX, minY = FLT_MAX;
-    float maxX, maxY = -FLT_MAX;
+    float minX = FLT_MAX, minY = FLT_MAX;
+    float maxX = -FLT_MAX, maxY = -FLT_MAX;
 
     auto transformed = getTransformedPoints(position, rotation);
 

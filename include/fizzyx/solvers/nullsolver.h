@@ -1,8 +1,8 @@
 #ifndef NULL_SOLVER_H
 #define NULL_SOLVER_H
 
-#include <solvers/physicssolver.h>
-#include <collision_utils/collisiondetector.h>
+#include "fizzyx/solvers/physicssolver.h"
+#include "fizzyx/collision_utils/collisiondetector.h"
 
 namespace fizzyx::tutorial
 {

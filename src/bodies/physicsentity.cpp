@@ -1,5 +1,5 @@
-#include <bodies/physicsentity.h>
-#include <math/vector2.h>
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/math/vector2.h"
 
 using namespace fizzyx::core;
 

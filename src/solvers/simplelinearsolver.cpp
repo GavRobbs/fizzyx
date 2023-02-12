@@ -1,4 +1,4 @@
-#include <solvers/simplelinearsolver.h>
+#include "fizzyx/solvers/simplelinearsolver.h"
 
 using namespace fizzyx::tutorial;
 

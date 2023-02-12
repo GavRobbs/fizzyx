@@ -1,5 +1,5 @@
-#include <math/mat33.h>
-#include <math/mathutils.h>
+#include "fizzyx/math/mat33.h"
+#include "fizzyx/math/mathutils.h"
 #include <stdexcept>
 #include <sstream>
 

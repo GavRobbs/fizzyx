@@ -3,7 +3,7 @@
 
 #include <utility>
 #include <vector>
-#include <bodies/physicsentity.h>
+#include "fizzyx/bodies/physicsentity.h"
 
 namespace fizzyx
 {

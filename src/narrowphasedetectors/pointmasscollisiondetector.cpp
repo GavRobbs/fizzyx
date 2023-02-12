@@ -1,5 +1,5 @@
-#include <narrowphasedetectors/pointmasscollisiondetector.h>
-#include <collision_utils/collisiondetector.h>
+#include "fizzyx/narrowphasedetectors/pointmasscollisiondetector.h"
+#include "fizzyx/collision_utils/collisiondetector.h"
 
 using namespace fizzyx::tutorial;
 

@@ -1,10 +1,10 @@
 #ifndef FORCE_GENERATOR_DEMO_COMPONENTS_H
 #define FORCE_GENERATOR_DEMO_COMPONENTS_H
 
-#include <ecs.h>
-#include <graphicsmanager.h>
-#include <physicsworld.h>
-#include <bodies/pointmass.h>
+#include "ecs.h"
+#include "graphicsmanager.h"
+#include "fizzyx/physicsworld.h"
+#include "fizzyx/bodies/pointmass.h"
 
 /* A class to represent our spring as a line*/
 class SpringRendererComponent : public IRenderable, public Component

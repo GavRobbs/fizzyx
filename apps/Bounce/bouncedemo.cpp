@@ -1,9 +1,9 @@
-#include <bouncedemo.h>
-#include <basiccomponents.h>
-#include <solvers/simplelinearsolver.h>
-#include <narrowphasedetectors/pointmasscollisiondetector.h>
-#include <acceleration/unoptimizedstore.h>
-#include <bodies/pointmass.h>
+#include "bouncedemo.h"
+#include "basiccomponents.h"
+#include "fizzyx/solvers/simplelinearsolver.h"
+#include "fizzyx/narrowphasedetectors/pointmasscollisiondetector.h"
+#include "fizzyx/acceleration/unoptimizedstore.h"
+#include "fizzyx/bodies/pointmass.h"
 
 BounceDemo::BounceDemo():DemoApp("Bounce Demo", 1024, 768)
 {

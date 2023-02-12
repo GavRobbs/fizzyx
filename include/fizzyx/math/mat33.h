@@ -1,9 +1,9 @@
 #ifndef MATRIX_33_H
 #define MATRIX_33_H
 
-#include <math/vector2.h>
-#include <math/vector3.h>
-#include <math/mat22.h>
+#include "vector2.h"
+#include "vector3.h"
+#include "mat22.h"
 
 namespace math
 {

@@ -1,7 +1,7 @@
 #ifndef MATRIX_22_H
 #define MATRIX_22_H
 
-#include <math/vector2.h>
+#include "vector2.h"
 
 namespace math
 {

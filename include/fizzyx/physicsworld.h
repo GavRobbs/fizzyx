@@ -2,11 +2,11 @@
 #define FIZZYX_WORLD_H
 
 #include <vector>
-#include <bodies/physicsentity.h>
-#include <solvers/physicssolver.h>
-#include <forcegenerators/forcegenerator.h>
-#include <collision_utils/collisiondetector.h>
-#include <acceleration/accelerationstructure.h>
+#include "fizzyx/bodies/physicsentity.h"
+#include "fizzyx/solvers/physicssolver.h"
+#include "fizzyx/forcegenerators/forcegenerator.h"
+#include "fizzyx/collision_utils/collisiondetector.h"
+#include "fizzyx/acceleration/accelerationstructure.h"
 #include <memory>
 
 namespace fizzyx

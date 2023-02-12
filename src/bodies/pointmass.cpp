@@ -1,4 +1,4 @@
-#include <bodies/pointmass.h>
+#include "fizzyx/bodies/pointmass.h"
 #include <cmath>
 #include <iostream>
 

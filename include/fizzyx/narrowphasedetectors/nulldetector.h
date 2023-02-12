@@ -1,7 +1,7 @@
 #ifndef NULL_COLLISION_DETECTOR_H
 #define NULL_COLLISION_DETECTOR_H
 
-#include <collision_utils/collisiondetector.h>
+#include "fizzyx/collision_utils/collisiondetector.h"
 
 namespace fizzyx::tutorial
 {

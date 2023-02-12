@@ -1,7 +1,7 @@
 #ifndef FORCE_GENERATOR_H
 #define FORCE_GENERATOR_H
 
-#include <bodies/physicsentity.h>
+#include "fizzyx/bodies/physicsentity.h"
 #include <string>
 
 namespace fizzyx::core
